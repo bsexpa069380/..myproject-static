@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tw">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="author" content="Action Sharon James">
+	<meta name="description" content="峻勝建設開發官網">
+
+	<!-- Font Imports -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/static/web/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/static/web/css/font-icons.css">
+	
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/static/web/css/swiper.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Document Title
+	============================================= -->
+	<title>邑城仰睦-線上熱銷</title>
+
+	
+
+</head>
+<style>
+
+	h3,h5 {
+			color: #c39c61;
+		}
+	
+	.project-image {
+		width: 650px;
+		height: 650px;
+		object-fit: cover;
+		object-position: center;
+	}
+	
+</style>
+
+
+<body class="stretched overlay-menu">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+		
+		
+		<header id="header" class="full-header transparent-header transparent-header-responsive" >
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="/static/web/index.html">
+								<img class="logo-default" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+								<img class="logo-dark" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+							</a>
+						</div><!-- #logo end -->
+
+					
+
+						<div class="primary-menu-trigger">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu">
+							<button class="menu-close" type="button" title="關閉選單">
+								<span class="menu-close-icon"></span>
+							</button>
+							<ul class="menu-container">
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/about.html"><div>關於峻勝<br>ABOUT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/news.html"><div>最新情報<br>NEWS</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/teams.html"><div>專業陣容<br>TEAM</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/project.html"><div>峻勝築績<br>PROJECT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/renew.html"><div>合作專區<br>RENEW</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/service.html"><div>客户中心<br>SERVICE</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/contact.html"><div>聯絡我們<br>CONTACT</div></a>
+								</li>
+							
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+						
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header>
+
+		<!-- 線上熱銷
+		============================================= -->
+		<section id="">
+			<div class="content-wrap py-lg-0">
+
+				<div class="container" >
+
+					<!-- Section light
+					============================================= -->
+
+						<div class="row align-items-lg-center min-vh-lg-100 gutter-50 mb-6">
+							
+							<div class="col-lg-12 align-sel f-center mb-6" >
+								 <div class="custom-title-box">
+ 								  <h2 class="custom-title">線上熱銷</h2>
+								 </div>
+							</div>
+							
+							<!-- Project template -->
+							<template id="project-template">
+								<div class="row mb-9">
+									<div class="col-lg-6">
+										<div class="">
+											<img src="" alt="建案照片 650*650" class="project-image">
+										</div>
+									</div>
+									<div class="col-lg-6 d-flex flex-column justify-content-between">
+										<div class="table-p">
+											<div class="text-center">  
+												<h5 class="project-category"></h5>
+												<h3 class="project-title"></h3>
+											</div>
+											<table class="project-table">
+												<tr class="highlight">
+													<th>座落位置</th>
+													<td class="project-location"></td>
+												</tr>
+												<tr>
+													<th>基地面積</th>
+													<td class="project-area"></td>
+												</tr>
+												<tr class="highlight">
+													<th>樓層規劃</th>
+													<td class="project-floor-plan"></td>
+												</tr>
+												<tr>
+													<th>戶數規劃</th>
+													<td class="project-units"></td>
+												</tr>
+												<tr class="highlight">
+													<th>坪數規劃</th>
+													<td class="project-size-plan"></td>
+												</tr>
+												<tr>
+													<th>目前進度</th>
+													<td class="project-current-status"></td>
+												</tr>
+												<tr class="highlight">
+													<th>預計進度</th>
+													<td class="project-schedule"></td>
+												</tr>
+												<tr>
+													<th>備註</th>
+													<td class="project-note"></td>
+												</tr>
+											</table>
+										</div>
+										<div class="table-p">
+											<div class="project-map"></div>
+										</div>
+										<div class="button-group table-p">
+											<a href="#" class="btn-custom project-reserve-link">預約參觀</a>
+											<a href="project.html" class="btn-custom with-border">回上一頁</a>
+										</div>
+									</div>
+								</div>
+							</template>
+							<!-- Projects container -->
+							<div id="projects-container"></div>
+							
+						</div>
+				</div>
+
+			</div>
+		</section><!-- #線上熱銷 end -->
+		
+		
+
+		
+
+		
+
+		
+			<!-- Footer
+		============================================= -->
+		<footer id="footer" class="bg-primary dark border-width-1 border-f5 block-footer-1">
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row col-mb-50">
+						<div class="col-lg-3 col-sm-12 order-2 order-lg-1">
+
+							<div class="widget">
+								<img src="assets/footer-logo.png" alt="Image" class="footer-logo" height="60">
+							</div>
+							
+							<p>服務時間:週一至週五(09:00〜18:00)<br>地址:新北市板橋區民生路1段33號5樓之2<br>電話:02-2951-2789</p>
+							
+							<div>
+									<a href="#" class="social-icon border-transparent h-bg-facebook">
+										<i class="fa-brands fa-facebook-f"></i>
+										<i class="fa-brands fa-facebook-f"></i>
+									</a>
+								
+								<a href="#" class="social-icon border-transparent h-bg-line">
+										<i class="bi-line"></i>
+										<i class="bi-line"></i>
+									</a>
+
+									<a href="#" class="social-icon border-transparent h-bg-instagram">
+										<i class="bi-instagram"></i>
+										<i class="bi-instagram"></i>
+									</a>
+
+									
+								</div>
+
+						</div>
+
+						<div class="col-lg-9 col-sm-12 order-1 order-lg-2">
+
+							<div class="row">
+								<div class="col-lg-f-7 col-3 mb-5">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">關於峻勝<br>ABOUT</h4>
+										<ul>
+											<li><a href="about.html">關於峻勝</a></li>
+											<li><a href="about.html#brand-senses">核心理念</a></li>
+											<li><a href="about.html#cooperate">緣起合建</a></li>
+											<li><a href="about.html#sustainability">永續價值</a></li>
+											<li><a href="about.html#charity">公益活动</a></li>
+											<li><a href="about.html#6s">六感建築</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">最新情報<br>NEWS</h4>
+										<ul>
+											<li><a href="news.html#case">個案新訊</a></li>
+											<li><a href="news.html#policy">政策快遞</a></li>
+											<li><a href="news.html#h-market">房市新讯</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">專業陣容<br>TEAM</h4>
+										<ul>
+											<li><a href="teams.html#create">營造陣容</a></li>
+											<li><a href="teams.html#building">建築陣容</a></li>
+											<li><a href="teams.html#design">設計陣容</a></li>
+										</ul>
+
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+
+									<div class="widget widget_links">
+
+										<h4 class="text-transform-none ls-0 text-center">峻勝築績<br>PROJECT</h4>
+										<ul>
+										    <li><a href="project.html#hotline">線上熱銷</a></li>
+											<li><a href="project.html#history">歷年業績</a></li>
+										</ul>
+
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">合作專區<br>RENEW</h4>
+										<ul>
+											<li><a href="renew.html#renewal-oldage">都更危老</a></li>
+											<li><a href="renew.html#advantages1">峻勝優勢</a></li>
+											<li><a href="renew.html#cityrenew">都更專區</a></li>
+											<li><a href="renew.html#dan-oldhouse">危老專區</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">客户中心<br>SERVICE</h4>
+										<ul>
+											<li><a href="service.html#project-progress">工程進度</a></li>
+											<li><a href="service.html#pay-history">繳款紀錄</a></li>
+											<li><a href="service.html#online-repair">線上報修</a></li>
+										</ul>
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">聯絡我們<br>CONTACT</h4>
+										<ul>
+											<li><a href="contact.html">意見回饋</a></li>
+											<li><a href="contact.html#footer">基本資料</a></li>
+										</ul>
+									</div>
+								</div>
+					
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<!-- #copyrights end -->
+		</footer><!-- #footer end -->
+
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="js/plugins.min.js"></script>
+	<script src="js/functions.bundle.js"></script>
+	<script src="js/menu.js"></script>
+	<script>
+	function getQueryParam(name) {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get(name);
+	}
+
+	function fillProjectTemplate(project) {
+		const template = document.getElementById('project-template');
+		const content = template.content.cloneNode(true);
+		content.querySelector('.project-image').src = project.cover_image || '/static/web/assets/project/01-sm.png';
+		content.querySelector('.project-category').textContent = project.category || '';
+		content.querySelector('.project-title').textContent = project.title || '';
+		content.querySelector('.project-location').textContent = project.location || '';
+		content.querySelector('.project-area').textContent = project.area || '';
+		content.querySelector('.project-floor-plan').textContent = project.floor_plan || '';
+		content.querySelector('.project-units').textContent = project.units || '';
+		content.querySelector('.project-size-plan').textContent = project.size_plan || '';
+		content.querySelector('.project-current-status').textContent = project.current_status || '';
+		content.querySelector('.project-schedule').textContent = project.schedule || '';
+		content.querySelector('.project-note').textContent = project.note || '';
+		// Map (visit_link)
+		const mapContainer = content.querySelector('.project-map');
+		if (project.visit_link) {
+			mapContainer.innerHTML = project.visit_link;
+			mapContainer.style.display = 'none';
+		} else {
+			mapContainer.style.display = 'none';
+		}
+		// Set the reservation link if available
+		const reserveBtn = content.querySelector('.project-reserve-link');
+		if (mapContainer.innerHTML) {
+			reserveBtn.href = mapContainer.innerHTML;
+		} else if (reserveBtn) {
+			reserveBtn.href = "#";
+			reserveBtn.classList.add("disabled");
+		}
+		return content;
+	}
+
+	async function renderCategoryProjects() {
+		const category = getQueryParam('category');
+		const container = document.getElementById('projects-container');
+		if (!container) return;
+		container.innerHTML = '';
+		if (!category) {
+			container.innerHTML = '<div class="col-12 text-center text-danger">未指定分類</div>';
+			return;
+		}
+		try {
+			const res = await fetch('/api/online-sales');
+			if (!res.ok) throw new Error('Failed to fetch projects');
+			const data = await res.json();
+			const filtered = data.filter(item => item.category === category && item.schedule != 100);
+			if (filtered.length === 0) {
+				container.innerHTML = '<div class="col-12 text-center">此分類下尚無建案資料</div>';
+				return;
+			}
+			filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+			filtered.forEach(project => {
+				container.appendChild(fillProjectTemplate(project));
+			});
+		} catch (e) {
+			container.innerHTML = '<div class="col-12 text-center text-danger">載入建案資料失敗</div>';
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', renderCategoryProjects);
+	</script>
+
+</body>
+</html>

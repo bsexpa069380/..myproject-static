@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .login-form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+        .admin-panel {
+            display: none;
+        }
+        .feedback-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .logout-btn {
+            background-color: #f44336;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginForm" class="login-form">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div id="error" class="error"></div>
+        </form>
+    </div>
+
+    <div id="adminPanel" class="admin-panel">
+        <h2>Admin Panel</h2>
+        <h3>Feedback List</h3>
+        <div id="feedbacks"></div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+
+    <script>
+        // Check session status on page load
+        async function checkSession() {
+            try {
+                const response = await fetch('http://127.0.0.1:5001/api/session-status', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (data.is_logged_in) {
+                    showAdminPanel();
+                    loadFeedbacks();
+                }
+            } catch (error) {
+                console.error('Error checking session:', error);
+            }
+        }
+
+        // Handle login
+        async function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:5001/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    showAdminPanel();
+                    loadFeedbacks();
+                } else {
+                    document.getElementById('error').textContent = data.message || 'Login failed';
+                    document.getElementById('error').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                document.getElementById('error').textContent = 'An error occurred during login';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // Handle logout
+        async function handleLogout() {
+            try {
+                const response = await fetch('http://127.0.0.1:5001/api/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    showLoginForm();
+                }
+            } catch (error) {
+                console.error('Error during logout:', error);
+            }
+        }
+
+        // Load feedbacks
+        async function loadFeedbacks() {
+            try {
+                const response = await fetch('http://127.0.0.1:5001/api/feedbacks', {
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    const feedbacks = await response.json();
+                    const feedbacksDiv = document.getElementById('feedbacks');
+                    feedbacksDiv.innerHTML = '';
+                    
+                    feedbacks.forEach(feedback => {
+                        const feedbackDiv = document.createElement('div');
+                        feedbackDiv.className = 'feedback-item';
+                        feedbackDiv.innerHTML = `
+                            <h4>${feedback.name || 'Anonymous'}</h4>
+                            <p>${feedback.message}</p>
+                            <small>Email: ${feedback.email || 'No email'}</small>
+                            <br>
+                            <small>Created at: ${feedback.created_at}</small>
+                        `;
+                        feedbacksDiv.appendChild(feedbackDiv);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading feedbacks:', error);
+            }
+        }
+
+        // Show/hide panels
+        function showAdminPanel() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+        }
+
+        // Event listeners
+        document.getElementById('loginForm').addEventListener('submit', handleLogin);
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+        
+        // Check session on page load
+        checkSession();
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>後台首頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; background-color: #f9f9f9; }
+    .section-title { font-weight: bold; font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .btn-block {
+      width: 100%;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+    .category-block {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>後台首頁</h2>
+      <div class="d-flex gap-2">
+        <a href="/static/web/index.html" class="btn btn-warning">網頁端</a>
+        <a href="/logout" class="btn btn-secondary">登出</a>
+      </div>
+    </div>
+    <div class="d-flex flex-column gap-2">
+    </div>
+    
+
+    <div class="row">
+
+      <!-- 關於俊勝 -->
+      <div class="col-md-3 category-block">
+        <div class="section-title">關於峻勝</div>
+        <a href="backend_charity.html" class="btn btn-secondary btn-block">公益活動</a>
+        <a href="backend_caseList.html" class="btn btn-secondary btn-block">個案資訊</a>
+      </div>
+
+      <!-- 峯勝業績 -->
+      <div class="col-md-3 category-block">
+        <div class="section-title">峻勝築績</div>
+        <a href="backend_onlineSale.html" class="btn btn-secondary btn-block">線上熱銷</a>
+        <a href="backend_caseHistory.html" class="btn btn-secondary btn-block">歷年業績</a>
+      </div>
+
+      <!-- 最新情報 -->
+      <div class="col-md-3 category-block">
+        <div class="section-title">最新情報</div>
+        <a href="backend_realEstateNews.html" class="btn btn-secondary btn-block">房市新訊</a>
+        <a href="backend_policyExpress.html" class="btn btn-secondary btn-block">政策快遞</a>
+      </div>
+
+      <!-- 其他 -->
+      <div class="col-md-3 category-block">
+        <div class="section-title">客戶中心</div>
+        <a href="backend_constructPhoto.html"  class="btn btn-secondary btn-block">工程進度</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+<script>
+    // 1. 登入檢查
+    (async function checkLoginStatus() {
+      const res = await fetch('/api/session-status', { credentials: 'include' });
+      const status = await res.json();
+      if (!status.is_logged_in) {
+        alert('尚未登入，請重新登入');
+        window.location.href = '/static/login.html';
+      }
+    })();
+  
+    // 2. 登出處理
+    document.querySelector('.btn.btn-secondary[href="/logout"]').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const res = await fetch('/api/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+      const result = await res.json();
+      if (result.status === 'logged_out') {
+        window.location.href = '/static/login.html';
+      }
+    });
+  </script>
+  

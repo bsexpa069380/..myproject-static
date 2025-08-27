@@ -1,0 +1,205 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+/* 關閉按鈕基本樣式 */
+.menu-close {
+    display: none; /* 預設隱藏 */
+}
+
+/* 全螢幕覆蓋選單樣式 */
+@media (max-width: 991px) {
+    .primary-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.65);
+        background-image: url('../assets/hero-page/hero-slider-dark.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 999;
+        display: none;
+        padding: 80px 0 0;
+    }
+
+    /* 關閉按鈕樣式 */
+    .menu-close {
+        display: block; /* 在小螢幕時顯示 */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        padding: 0;
+    }
+
+    .menu-close-icon {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu-close-icon:before,
+    .menu-close-icon:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .menu-close-icon:before {
+        transform: rotate(45deg);
+    }
+
+    .menu-close-icon:after {
+        transform: rotate(-45deg);
+    }
+
+    .menu-close:hover .menu-close-icon:before,
+    .menu-close:hover .menu-close-icon:after {
+        background-color: #c39c61;
+    }
+
+    .primary-menu .menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .primary-menu .menu-item {
+        margin: 5px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+    }
+
+    .primary-menu .menu-link {
+        color: #fff;
+        font-size: 24px;
+        padding: 10px 20px;
+        display: block;
+        width: 100%;
+    }
+
+    .primary-menu .menu-link div {
+        text-align: center;
+        color: #fff !important;
+    }
+
+    .primary-menu .menu-link div.bw {
+        color: #fff !important;
+    }
+
+    /* 選單項目下方線條樣式 */
+    .menu-container .menu-item a::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -5px;
+        width: 0;
+        height: 1px;
+        background-color: #c39c61;
+        transition: width 0.3s ease;
+    }
+
+    .menu-container .menu-item a:hover::after {
+        width: 30px;
+    }
+
+    /* 當選單開啟時的動畫效果 */
+    .primary-menu.menu-open {
+        display: block;
+    }
+
+    .primary-menu.menu-open .menu-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 漢堡選單按鈕樣式 */
+    .cnvs-hamburger {
+        position: relative;
+        z-index: 1000;
+    }
+
+    /* 選單遮罩層 */
+    .primary-menu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+    }
+
+    .custom-title-box {
+        text-align: left !important;
+    }
+
+    .primary-menu .menu-item a {
+        color: #fff !important;
+    }
+
+    .primary-menu .menu-item a:hover {
+        color: #2d4b3c !important;
+    }
+}
+
+.col-12.my-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.col-12.my-4 button {
+    margin: 0 auto;
+}
+
+.primary-menu .menu-item a {
+    color: #fff !important;
+    transition: color 0.3s ease;
+}
+
+.primary-menu .menu-item a:hover {
+    color: #2d4b3c !important;
+}
+
+/* Project card hover effect for cards inside links */
+a:hover .card,
+a:focus .card {
+    transform: scale(1.03);
+    transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
+    z-index: 2;
+}
+
+.card {
+    transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.shadow-sm {
+  box-shadow: none !important;
+}
+

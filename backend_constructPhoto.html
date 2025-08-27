@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>工程進度編輯 Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .image-preview {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .image-preview img {
+      width: 120px;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .search-button {
+      width: 120px;
+    }
+  </style>
+</head>
+<body class="p-4 bg-light">
+
+  <div class="container">
+    <h3 class="mb-4">工程進度編輯模擬</h3>
+    <div class="d-flex gap-3 mb-4">
+      <button id="addProjectBtn" class="btn btn-primary">＋ 新增工程</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" id="searchInput" class="form-control" placeholder="搜尋工程名稱...">
+      <button class="btn btn-outline-primary search-button" id="searchBtn">搜尋</button>
+    </div>
+
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th style="width: 50px;">#</th>
+          <th>工程建案名稱</th>
+          <th style="width: 200px;">操作</th>
+        </tr>
+      </thead>
+      <tbody id="projectList"></tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="editProgressModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <form id="editProgressForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProgressTitle">工程進度編輯頁</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">工程名稱</label>
+              <input type="text" class="form-control" id="projectNameInput" name="project_name">
+              <input type="text" class="form-control bg-light d-none" id="projectNameDisplay" readonly>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">密碼設置</label>
+              <input type="text" class="form-control" name="password" placeholder="請輸入密碼">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">上傳工程實景圖（可多選）</label>
+              <input type="file" class="form-control" id="imageUpload" accept="image/*" multiple onchange="previewImages()">
+              <div class="image-preview" id="previewContainer"></div>
+            </div>
+
+            <!-- Container for existing images (added for edit mode) -->
+            <div id="existingImagesContainer" class="image-preview"></div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-success">發送</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+  <script>
+    const API = '/api/construct-photos';
+    let selectedFiles = [];
+    let isEditMode = false;
+
+    function openProgressModal(edit = false, data = {}) {
+      isEditMode = edit;
+      const title = document.getElementById('editProgressTitle');
+      const projectNameInput = document.getElementById('projectNameInput');
+      const projectNameDisplay = document.getElementById('projectNameDisplay');
+      const passwordInput = document.querySelector('#editProgressForm input[name="password"]');
+      const existingImagesContainer = document.getElementById('existingImagesContainer');
+
+      document.getElementById('editProgressForm').reset();
+      document.getElementById('previewContainer').innerHTML = '';
+      selectedFiles = [];
+      existingImagesContainer.innerHTML = ''; // Clear previous existing images
+
+      const editProgressForm = document.getElementById('editProgressForm');
+
+      if (edit) {
+        title.textContent = '工程進度編輯頁';
+        projectNameInput.classList.add('d-none');
+        projectNameDisplay.classList.remove('d-none');
+        projectNameDisplay.value = data.project_name || '—'; // Display project name
+        
+        // Store project_id on the form element
+        editProgressForm.dataset.projectId = data.project_id;
+
+        // Fetch existing photo data
+        fetch(`${API}/${data.project_id}`, { credentials: 'include' })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to fetch photo data');
+            }
+            return response.json();
+          })
+          .then(photoData => {
+            console.log('Fetched photo data:', photoData); // Log the entire photo data
+            console.log('Fetched images:', photoData.images); // Log the images array
+
+            // Add a log to check the order of images received from the backend
+            console.log('[openProgressModal] Images received from backend:', photoData.images.map(img => ({ id: img.id, order: img.image_order })));
+
+            // Populate password field (title is displayed, not input for edit)
+            passwordInput.value = photoData.password || '';
+
+            // Display existing images
+            if (photoData.images && photoData.images.length > 0) {
+                photoData.images.forEach(image => {
+                    const imageItem = document.createElement('div');
+                    imageItem.className = 'existing-image-item';
+                     imageItem.style.cssText = `
+                        position: relative;
+                        width: 120px;
+                        height: 120px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        margin: 5px;
+                    `;
+                    imageItem.innerHTML = `
+                        <img src="${image.image_url}" alt="Existing Photo" style="width: 100%; height: 100%; object-fit: cover;">
+                         <button type="button" class="btn btn-danger btn-sm" 
+                            style="position: absolute; top: 5px; right: 5px; padding: 0.25rem 0.5rem;"
+                           onclick="removeExistingImage(${image.id}, this)">
+                             <i class="bi bi-x"></i>
+                         </button>
+                         <input type="hidden" name="existing_images" value="${image.id}"> // Keep track of existing image IDs
+                    `;
+                    existingImagesContainer.appendChild(imageItem);
+                });
+
+                // Initialize SortableJS after images are loaded
+                new Sortable(existingImagesContainer, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost', // Class name for the drop placeholder
+                    // Add more options here if needed, e.g., handle, filter, etc.
+                });
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching photo data for edit:', error);
+            showToast('載入照片資料失敗', false);
+          });
+
+      } else {
+        title.textContent = '新增工程進度';
+        projectNameInput.classList.remove('d-none');
+        projectNameDisplay.classList.add('d-none');
+        projectNameInput.value = '';
+        passwordInput.value = '';
+      }
+
+      new bootstrap.Modal(document.getElementById('editProgressModal')).show();
+    }
+
+    function previewImages() {
+      const files = document.getElementById('imageUpload').files;
+      const preview = document.getElementById('previewContainer');
+      preview.innerHTML = '';
+      selectedFiles = Array.from(files);
+
+      selectedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const previewItem = document.createElement('div');
+          previewItem.className = 'preview-item';
+          previewItem.style.cssText = `
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 5px;
+          `;
+          previewItem.innerHTML = `
+            <img src="${e.target.result}" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;">
+            <button type="button" class="btn btn-danger btn-sm" 
+              style="position: absolute; top: 5px; right: 5px; padding: 0.25rem 0.5rem;"
+              onclick="removeImage(${index})">
+              <i class="bi bi-x"></i>
+            </button>
+          `;
+          preview.appendChild(previewItem);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function removeImage(index) {
+      selectedFiles.splice(index, 1);
+      previewImages(); // Refresh preview
+    }
+
+    function removeExistingImage(imageId, buttonElement) {
+        if (confirm('確定要移除這張照片嗎？\n(變更將在儲存後生效)')) {
+            // Mark the input for this image to be excluded from the next submission
+            const hiddenInput = buttonElement.nextElementSibling; // The hidden input with image ID
+            if (hiddenInput && hiddenInput.name === 'existing_images') {
+                hiddenInput.name = 'existing_images_to_remove'; // Change name so it's not sent as 'existing_images'
+            }
+            // Visually remove the image item
+            buttonElement.closest('.existing-image-item').remove();
+        }
+    }
+
+    document.getElementById('editProgressForm').addEventListener('submit', async function(e) {
+      console.log('[Submit Listener] Form submit event fired.');
+      e.preventDefault();
+      
+      const titleValue = isEditMode ? document.getElementById('projectNameDisplay').value : document.getElementById('projectNameInput').value;
+      const passwordValue = document.querySelector('#editProgressForm input[name="password"]').value;
+
+      // Manual validation for title and password
+      if (!titleValue) {
+          showToast('請輸入工程名稱', false);
+          return;
+      }
+      if (!passwordValue) {
+           showToast('請輸入密碼', false);
+           return;
+      }
+
+      const formData = new FormData();
+      formData.append('title', titleValue);
+      formData.append('password', passwordValue);
+      
+      // Append new images
+      if (selectedFiles.length > 0) {
+        const fileKey = isEditMode ? 'new_images' : 'images'; // Use 'images' for POST, 'new_images' for PUT
+        selectedFiles.forEach(file => {
+          formData.append(fileKey, file);
+        });
+      }
+
+      // Append existing image IDs that are NOT marked for removal
+      document.querySelectorAll('input[name="existing_images"]').forEach(input => {
+           formData.append('existing_images', input.value); // Use 'existing_images' as the key for existing images to keep
+      });
+
+      // Append the ordered list of existing image IDs when in edit mode
+      if (isEditMode) {
+          const orderedExistingImageIds = [];
+          // SortableJS might reorder the DOM elements, so iterate through the container's children
+          document.querySelectorAll('#existingImagesContainer .existing-image-item').forEach(item => {
+              const imageIdInput = item.querySelector('input[name="existing_images"]');
+              // Only include images that are not marked for removal
+              if (imageIdInput) {
+                  orderedExistingImageIds.push(imageIdInput.value);
+              }
+          });
+          console.log('[Submit Listener] Ordered existing image IDs:', orderedExistingImageIds); // Log the ordered IDs
+          // Append each ID with the same key to FormData to send as a list
+          orderedExistingImageIds.forEach(id => {
+              formData.append('ordered_existing_image_ids', id);
+          });
+      }
+
+      try {
+        const formProjectId = document.getElementById('editProgressForm').dataset.projectId;
+        const url = isEditMode ? `${API}/${formProjectId}` : API;
+        const method = isEditMode ? 'PUT' : 'POST';
+
+        console.log('[Submit Handler] isEditMode:', isEditMode);
+        console.log('[Submit Handler] URL:', url);
+        console.log('[Submit Handler] Method:', method);
+        // console.log('[Submit Handler] FormData keys:', Array.from(formData.keys())); // Can be noisy with files
+        // console.log('[Submit Handler] FormData entries:', Array.from(formData.entries())); // Can be noisy with files
+
+        const response = await fetch(url, {
+          method: method,
+          body: formData,
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          throw new Error('操作失敗'); // More generic error message
+        }
+
+        const result = await response.json();
+        showToast(result.message, true);
+        bootstrap.Modal.getInstance(document.getElementById('editProgressModal')).hide();
+        fetchProjects(); // Refresh the list after save
+      } catch (error) {
+        console.error('Error:', error);
+        showToast('操作失敗: ' + error.message, false); // More generic error message
+      }
+    });
+
+    async function fetchProjects() {
+      try {
+        const response = await fetch(API, {
+          credentials: 'include'
+        });
+        const projects = await response.json();
+        
+        const projectList = document.getElementById('projectList');
+        projectList.innerHTML = projects.map((project, index) => `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${project.title}</td>
+            <td class="d-flex justify-content-center gap-2">
+              <button class="btn btn-primary btn-sm edit-project-btn" data-project-id="${project.id}" data-project-name="${project.title}">
+                <i class="bi bi-pencil"></i> 編輯
+              </button>
+              <button class="btn btn-danger btn-sm delete-project-btn" data-project-id="${project.id}">
+                <i class="bi bi-trash"></i> 刪除
+              </button>
+            </td>
+          </tr>
+        `).join('');
+
+        // Attach event listeners after rendering
+        document.querySelectorAll('.edit-project-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const projectId = this.dataset.projectId;
+                const projectName = this.dataset.projectName;
+                openProgressModal(true, { project_id: projectId, project_name: projectName });
+            });
+        });
+
+        document.querySelectorAll('.delete-project-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const projectId = this.dataset.projectId;
+                deleteProject(projectId);
+            });
+        });
+
+      } catch (error) {
+        console.error('Error:', error);
+        showToast('載入工程列表失敗', false);
+      }
+    }
+
+    async function deleteProject(id) {
+      if (!confirm('確定要刪除此工程嗎？')) return;
+
+      try {
+        const response = await fetch(`${API}/${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          throw new Error('刪除失敗');
+        }
+
+        const result = await response.json();
+        showToast(result.message, true);
+        fetchProjects();
+      } catch (error) {
+        console.error('Error:', error);
+        showToast('刪除失敗: ' + error.message, false);
+      }
+    }
+
+    function showToast(message, isSuccess) {
+      const toast = document.createElement('div');
+      toast.className = `toast align-items-center text-white ${isSuccess ? 'bg-success' : 'bg-danger'} border-0 position-fixed bottom-0 end-0 m-3`;
+      toast.setAttribute('role', 'alert');
+      toast.setAttribute('aria-live', 'assertive');
+      toast.setAttribute('aria-atomic', 'true');
+      
+      toast.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">
+            ${message}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      `;
+      
+      document.body.appendChild(toast);
+      const bsToast = new bootstrap.Toast(toast);
+      bsToast.show();
+      
+      toast.addEventListener('hidden.bs.toast', () => {
+        toast.remove();
+      });
+    }
+
+    function filterProjects() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('projectList');
+      const rows = table.getElementsByTagName('tr');
+      for (let i = 0; i < rows.length; i++) {
+        const td = rows[i].getElementsByTagName('td')[1];
+        if (td) {
+          const txtValue = td.textContent || td.innerText;
+          rows[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? '' : 'none';
+        }
+      }
+    }
+
+    // Add event listener for the add project button
+    document.getElementById('addProjectBtn').addEventListener('click', function() {
+        openProgressModal(false);
+    });
+
+    // Add event listener for the search button
+    document.getElementById('searchBtn').addEventListener('click', function() {
+        filterProjects();
+    });
+
+    // 頁面載入時獲取工程列表
+    fetchProjects();
+  </script>
+</body>
+</html>

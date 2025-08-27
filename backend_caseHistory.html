@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>歷年業績清單</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { padding: 2rem; }
+    .table thead th { background-color: #f8f9fa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>歷年業績清單</h2>
+      <div class="d-flex flex-column gap-2">
+        <a href="/static/admin_dashboard.html" class="btn btn-secondary">回首頁</a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button class="btn btn-primary" onclick="openModal()">+ 新增建案</button>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>建案標題</th>
+          <th>建案分類</th>
+          <th>編輯</th>
+          <th>刪除</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 資料將由 API 動態填入 -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal 建案新增/編輯表單 -->
+  <div class="modal fade" id="caseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <form id="caseForm">
+          <div class="modal-header">
+            <h5 class="modal-title">歷年業績 建案新增/編輯頁</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">建案分類</label>
+                <input type="text" name="category" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">上傳封面圖檔案</label>
+                <input type="file" name="cover" id="cover" class="form-control" accept="image/*">
+                 <div id="preview_cover_container" class="d-flex align-items-center gap-2 mt-2">
+                   <img id="preview_cover" class="preview" style="max-width: 100px; max-height: 100px;">
+                   <span id="preview_cover_info"></span>
+                 </div>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">輸入建案小標題</label>
+                <input type="text" name="subtitle" class="form-control">
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">輸入建案標題</label>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">座落位置</label>
+                <input type="text" name="location" class="form-control">
+              </div>
+              
+              <div class="col-md-6">
+                <label class="form-label">基地面積</label>
+                <input type="text" name="area" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">備註</label>
+                <input type="text" name="note" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">戶數規劃</label>
+                <input type="text" name="units" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">坪數規劃</label>
+                <input type="text" name="size_plan" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">樓層規劃</label>
+                <input type="text" name="floor_plan" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">目前進度</label>
+                <input type="text" name="current_status" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Google Map 嵌入碼</label>
+                <textarea name="google_map_url" id="google_map_url" class="form-control" rows="3" placeholder="請貼上 Google Maps 嵌入碼 (iframe HTML)"></textarea>
+                <small class="form-text text-muted">請從 Google Maps 複製嵌入碼並貼上</small>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-success">發送</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastBody">
+          <!-- Toast message will go here -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "/api/online-sales";
+    const modalElement = document.getElementById('caseModal');
+    const modal = new bootstrap.Modal(modalElement);
+    const form = document.getElementById('caseForm');
+    const tableBody = document.querySelector('.table tbody');
+
+    // Initialize toast
+    let liveToast;
+    document.addEventListener('DOMContentLoaded', function() {
+      const toastElement = document.getElementById('liveToast');
+      if (toastElement) {
+        liveToast = new bootstrap.Toast(toastElement);
+      }
+    });
+
+    // Function to show toast messages
+    function showToast(message, isSuccess = true) {
+      const toastElement = document.getElementById('liveToast');
+      const toastBodyElement = document.getElementById('toastBody');
+      if (toastElement && toastBodyElement) {
+        toastBodyElement.textContent = message;
+        toastElement.className = `toast align-items-center border-0 ${isSuccess ? 'text-bg-success' : 'text-bg-danger'}`;
+        if (liveToast) {
+          liveToast.show();
+        } else {
+          console.log('Toast not initialized, logging message:', message);
+        }
+      }
+    }
+
+    // Consolidated Preview logic for file inputs
+    function setupImagePreview(inputId, previewId, infoId) {
+      document.getElementById(inputId).addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById(previewId);
+        const info = document.getElementById(infoId);
+
+        if (!file) {
+          // File input cleared, hide preview and info
+          preview.classList.add('d-none');
+          preview.src = '';
+          info.textContent = '';
+          return;
+        }
+
+        if (file.type.startsWith('image/')) {
+          if (file.size > 1 * 1024 * 1024) { // 1MB limit
+            showToast("圖片大小應小於 1MB", false);
+            e.target.value = "";
+            preview.classList.add('d-none');
+            info.textContent = "";
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = ev => {
+            const img = new Image();
+            img.onload = function() {
+              if (this.width !== 650 || this.height !== 650) {
+                showToast("圖片尺寸必須為 650x650 像素", false);
+                e.target.value = "";
+                preview.classList.add('d-none');
+                info.textContent = "";
+                return;
+              }
+              preview.src = ev.target.result;
+              preview.classList.remove('d-none');
+              info.textContent = `${file.name} (${Math.round(file.size / 1024)} KB)`;
+            };
+            img.src = ev.target.result;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          showToast("請選擇有效的圖片檔案 (JPG/PNG)", false);
+          e.target.value = "";
+          preview.classList.add('d-none');
+          info.textContent = "";
+        }
+      });
+    }
+
+    // Set up preview listener for cover image
+    setupImagePreview('cover', 'preview_cover', 'preview_cover_info');
+
+    function openModal() {
+      form.reset();
+      form.dataset.id = ''; // Clear ID for create mode
+
+      // Clear cover image preview and info when opening for create
+      const coverPreview = document.getElementById('preview_cover');
+      const coverInfo = document.getElementById('preview_cover_info');
+      coverPreview.classList.add('d-none');
+      coverPreview.src = '';
+      coverInfo.textContent = '';
+      
+      modal.show();
+    }
+
+    // Function to fetch and display projects
+    async function fetchProjects() {
+      console.log('fetchProjects function called.');
+      try {
+        const res = await fetch(`${API_URL}?schedule=100`, {
+          method: 'GET',
+          credentials: 'include'
+        });
+        
+        console.log('fetchProjects: GET request sent.');
+
+        if (!res.ok) {
+          console.error(`fetchProjects: HTTP error! status: ${res.status}`);
+          // Display an error message in the table
+          tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">載入建案資料失敗</td></tr>';
+          showToast('載入建案資料失敗', false); // Use toast
+          return;
+        }
+
+        const projects = await res.json();
+        
+        console.log('fetchProjects: Received data:', projects);
+        console.log('fetchProjects: Number of projects received:', projects.length);
+
+        // Clear existing table rows
+        tableBody.innerHTML = '';
+        console.log('fetchProjects: Table body cleared.');
+
+        if (projects.length === 0) {
+          tableBody.innerHTML = '<tr><td colspan="5" class="text-center">尚無建案資料</td></tr>';
+          console.log('fetchProjects: No projects found.');
+          return;
+        }
+
+        // Populate table
+        console.log('fetchProjects: Populating table...');
+        projects.forEach((project, index) => {
+          console.log(`fetchProjects: Processing project ${index}:`, project);
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${project.title || ''}</td>
+            <td>${project.category || ''}</td>
+            <td><button class="btn btn-sm btn-warning" onclick="editProject(${project.id})">編輯</button></td>
+            <td><button class="btn btn-sm btn-danger" onclick="deleteProject(${project.id})">刪除</button></td>
+          `;
+
+          tableBody.appendChild(row);
+          console.log(`fetchProjects: Row ${index} appended.`);
+        });
+
+        console.log('fetchProjects: Table populated.');
+
+      } catch (error) {
+        console.error('Error in fetchProjects:', error);
+        // Display an error message in the table or elsewhere
+        tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">載入建案資料失敗</td></tr>';
+        showToast(`載入建案資料失敗: ${error.message}`, false); // Use toast with error message
+      }
+    }
+
+    // Handle form submission (Create/Update)
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const projectId = form.dataset.id; // Check if we are editing
+
+      const method = projectId ? 'PUT' : 'POST';
+      const url = projectId ? `${API_URL}/${projectId}` : API_URL;
+      
+      // Map frontend form fields to backend expected data structure for online_sales
+      // Remove fields not in online_sales table or handled differently
+      formData.delete('google_map_url'); // Remove this, we'll add visit_link separately if needed
+      // ... any other fields not matching exact database columns ...
+
+      // Handle specific mappings/inclusions not directly from form names
+      // For backend's 'visit_link', use frontend's 'google_map_url' value
+      const googleMapUrlInput = document.getElementById('google_map_url');
+      if (googleMapUrlInput && googleMapUrlInput.value.trim()) {
+           formData.append('visit_link', googleMapUrlInput.value.trim());
+      }
+      
+      // Auto-fill schedule to 100 for case history projects
+      formData.append('schedule', '100');
+
+      // Note: Fields like 'visit_link' (if not using google_map_url) are missing in this form
+      // and won't be sent. The backend should handle missing fields gracefully.
+
+      try {
+        const res = await fetch(url, {
+          method: method,
+          body: formData,
+          credentials: 'include' // Important for sessions
+        });
+
+        const responseData = await res.json();
+
+        if (res.ok) {
+          showToast(responseData.message || '操作成功');
+          modal.hide();
+          console.log('POST/PUT successful, calling fetchProjects to refresh...');
+          fetchProjects(); // Refresh the list
+        } else {
+          showToast(responseData.message || '操作失敗', false);
+          console.error('API Error:', responseData);
+        }
+      } catch (error) {
+        showToast('操作失敗', false);
+        console.error('Fetch Error:', error);
+      }
+    });
+
+    // Implement Edit functionality
+    async function editProject(id) {
+        console.log(`editProject called for ID: ${id}`);
+        try {
+            const res = await fetch(`${API_URL}/${id}`, {
+                method: 'GET',
+                credentials: 'include'
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                showToast(errorData.message || '載入建案資料失敗', false);
+                console.error('API Error fetching project for edit:', errorData);
+                return;
+            }
+
+            const project = await res.json();
+            console.log('Received project data for edit:', project);
+
+            // Populate the form
+            form.reset(); // Start with a clean form
+            form.dataset.id = project.id; // Set ID for update mode
+
+            // Populate standard text inputs by mapping project data keys to form element names
+            const formElements = form.elements; // Use form.elements collection
+            for (const key in project) {
+                if (project.hasOwnProperty(key) && formElements[key]) {
+                    // Exclude file input, which is handled separately for preview
+                    // Exclude 'id' and 'created_at' as they are not form inputs to be edited this way
+                    // Map google_map_url to visit_link from backend data
+                    if (key === 'visit_link' && formElements['google_map_url']) {
+                        formElements['google_map_url'].value = project[key] || '';
+                    } else if (formElements[key]) { // Direct mapping for other fields
+                        formElements[key].value = project[key] || '';
+                    }
+                }
+            }
+
+            // Handle original cover image preview
+            const coverPreview = document.getElementById('preview_cover');
+            const coverInfo = document.getElementById('preview_cover_info');
+            
+            // Clear existing file input value
+            const coverFileInput = document.getElementById('cover');
+            if (coverFileInput) {
+                 coverFileInput.value = ''; 
+            }
+
+            if (project.cover_image) {
+                coverPreview.src = project.cover_image;
+                coverPreview.classList.remove('d-none');
+                coverInfo.textContent = '已上傳';
+            } else {
+                coverPreview.classList.add('d-none');
+                coverPreview.src = '';
+                coverInfo.textContent = '';
+            }
+
+            // Show the modal
+            modal.show();
+
+            // Explicitly set google_map_url if visit_link exists
+            if (project.visit_link && form.elements['google_map_url']) {
+                form.elements['google_map_url'].value = project.visit_link;
+            }
+
+        } catch (error) {
+            showToast('載入建案資料失敗', false);
+            console.error('Fetch Error fetching project for edit:', error);
+        }
+    }
+
+    // Implement Delete functionality
+    async function deleteProject(id) {
+        if (confirm(`確定要刪除建案 ID: ${id} 嗎？`)) {
+            try {
+                const res = await fetch(`${API_URL}/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include' // Important for sessions
+                });
+
+                const responseData = await res.json();
+
+                if (res.ok) {
+                    showToast(responseData.message || '刪除成功');
+                    fetchProjects(); // Refresh the list
+                } else {
+                    showToast(responseData.message || '刪除失敗', false);
+                    console.error('API Error:', responseData);
+                }
+            } catch (error) {
+                showToast('刪除失敗', false);
+                console.error('Fetch Error:', error);
+            }
+        }
+    }
+
+    // Fetch projects when the page loads
+    document.addEventListener('DOMContentLoaded', fetchProjects);
+
+  </script>
+</body>
+</html>

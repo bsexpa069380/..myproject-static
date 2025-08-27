@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tw">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="author" content="Action Sharon James">
+<meta name="description" content="峻勝建設開發官網">
+
+<!-- Font Imports -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Core Style -->
+<link rel="stylesheet" href="/static/web/style.css">
+
+<!-- Font Icons -->
+<link rel="stylesheet" href="/static/web/css/font-icons.css">
+
+<!-- Plugins/Components CSS -->
+<link rel="stylesheet" href="/static/web/css/swiper.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/static/web/css/custom.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Document Title
+	============================================= -->
+<title>邑城仰睦-關於峻勝</title>
+<style>
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 295px);
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.portfolio-item {
+    width: 295px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.grid-inner {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-image {
+    width: 295px;
+    height: 220px;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: block;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.portfolio-image img {
+    width: 295px;
+    height: 220px;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: block;
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-desc {
+    padding: 15px 0;
+}
+
+.portfolio-desc h5 {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.portfolio-desc span {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .bg-overlay {
+    opacity: 1;
+}
+
+.overlay-trigger-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    color: #333;
+    background: #fff;
+    text-decoration: none;
+}
+
+/* Modal cover image */
+.modal-cover-image {
+    width: 295px !important;
+    height: 220px !important;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 16px auto;
+    border-radius: 4px;
+}
+
+/* For both grid and modal cover images */
+.cover-image-unified {
+    width: 295px !important;
+    height: 220px !important;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: block;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 0 auto 16px auto;
+}
+</style>
+</head>
+
+<body class="stretched overlay-menu">
+
+<!-- Document Wrapper
+	============================================= -->
+<div id="wrapper">
+  <header id="header" class="full-header transparent-header transparent-header-responsive" >
+    <div id="header-wrap">
+      <div class="container">
+        <div class="header-row"> 
+          
+          <!-- Logo
+						============================================= -->
+          <div id="logo"> <a href="/static/web/index.html"> <img class="logo-default" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo"> <img class="logo-dark" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo"> </a> </div>
+          <!-- #logo end -->
+          
+          <div class="primary-menu-trigger">
+            <button class="cnvs-hamburger" type="button" title="Open Mobile Menu"> <span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span> </button>
+          </div>
+          
+          <!-- Primary Navigation
+						============================================= -->
+          <nav class="primary-menu">
+            <button class="menu-close" type="button" title="關閉選單"> <span class="menu-close-icon"></span> </button>
+            <ul class="menu-container">
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/about.html"><div>關於峻勝<br>ABOUT</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/news.html"><div>最新情報<br>NEWS</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/teams.html"><div>專業陣容<br>TEAM</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/project.html"><div>峻勝築績<br>PROJECT</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/renew.html"><div>合作專區<br>RENEW</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/service.html"><div>客户中心<br>SERVICE</div></a> 
+              </li>
+              <li class="menu-item"> 
+                <a class="menu-link" href="/static/web/contact.html"><div>聯絡我們<br>CONTACT</div></a> 
+              </li>
+            </ul>
+          </nav>
+          <!-- #primary-menu end --> 
+          
+        </div>
+      </div>
+    </div>
+    <div class="header-wrap-clone"></div>
+  </header>
+  
+  <!-- 關於峻勝
+		============================================= -->
+  <section id="about-junsfeng">
+    <div class="content-wrap py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="block-hero-25">
+          <div class="row align-items-lg-center min-vh-lg-100 gutter-50">
+            <div class="col-lg-5 order-2 order-lg-1" data-animate="fadeInUp"> <img src="/static/web/assets/about/ceo.jpg" alt="story-image"> <img src="/static/web/assets/about/ceo-cv.png" alt="story-image"> </div>
+            <div class="col-lg-7 align-sel f-center order-1 order-lg-2" >
+              <div class="heading-block" >
+                <h3 style="color: #c39c61;">關於峻勝</h3>
+                <p style="color: #c39c61;">ABOUT JUN-SHENG</p>
+              </div>
+              <h4 >匯世代建築菁英 打造專業團隊<br>
+                六感品味 智能維度<br>
+                顛覆生活想像 煥新居宅向度</h4>
+              <p class="main-p">峻勝建設、邑城建設同心連袂，本砌築家的初心與誠意，以未來居住者的想望構築藍圖，讓建築本體提供舒心生活、安穩居住的體驗，進而維護家人間的親密關係與永續情感。<br>
+                <br>
+                建築從來不只是一張權狀，我們肩負著使用者的期待，匯聚建築領域之專業人才，從土地開發整合、監造施工、銷售、交屋至售後服務等，為購屋戶與合建地主打造一條龍安心程序。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #關於峻勝 end --> 
+  
+  <!-- 過場線
+		============================================= -->
+  <div class="svg-divider mb-6">
+    <svg id="page2v-1" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+      <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+    </svg>
+  </div>
+  
+  <!-- #過場線 end --> 
+  
+  <!-- 核心理念
+		============================================= -->
+  <section id="brand-senses">
+    <div class="content py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="block-hero-25">
+          <div class="row gutter-50">
+            <div class="col-lg-5 order-2 order-lg-1" data-animate="fadeInUp"> <img src="/static/web/assets/about/senses-main.jpg" alt="story-image"> </div>
+            <div class="col-lg-7 align-sel f-center order-1 order-lg-2" >
+              <div class="heading-block" >
+                <h3 style="color: #c39c61;">核心理念</h3>
+                <p style="color: #c39c61;">BRAND NEW SENSES</p>
+              </div>
+              <h4>人為本心 生活賦新 價值大煥新</h4>
+              <p class="main-p">房子對身心影響看似隱性卻深遠，重建不只換上全新建築，透過臨路退縮、結構進化、水質過濾、智能社區…等，賦予六感全新升級。峻勝建設開發依地主需求及基地條件，提供多元化方案，免去常見因協商不成導致重建失敗的案例。峻勝建設開發具備高專業度、高效率、高靈活度，將協助地主取得利益最大化，耐心傾聽需求，深入研究基地條件，提供專業知識及多元重建方案，延續土地原生情感，以合理分配比例給予地主，創造高品質生活。</p>
+            </div>
+            <div class="col col-lg-5 order-4 order-lg-3"></div>
+            <div class="col-12 col-lg-7 order-3 order-lg-4 mb-6">
+              <h4>你的想法 我們最在意 追求卓越 尋求共榮 <br>
+                讓住戶放下心中四塊大石</h4>
+              <img src="/static/web/assets/about/senses.png" alt="story-image"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #核心理念 end --> 
+  
+  <!-- 過場線
+		============================================= -->
+  <div class="svg-divider mb-6">
+    <svg id="page2v-2" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+      <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+    </svg>
+  </div>
+  
+  <!-- #過場線 end --> 
+  
+  <!-- 緣起於合建
+		============================================= -->
+  <section id="cooperate" class="mt-6 mb-6">
+    <div class="content py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="block-hero-25">
+          <div class="row align-items-lg-center gutter-50">
+            <div class="col-lg-6 " data-animate="fadeInUp"> <img src="/static/web/assets/about/cooperate-04.png" alt="story-image"> </div>
+            <div class="col-lg-6 align-sel f-center" > <img src="/static/web/assets/about/cooperate-05.png" alt="story-image"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #緣起於合建 end --> 
+  
+  <!-- 過場線
+		============================================= -->
+  <div class="svg-divider mb-6">
+    <svg id="page2v-3" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+      <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+    </svg>
+  </div>
+  
+  <!-- #過場線 end --> 
+  
+  <!-- 永續價值
+		============================================= -->
+  <section id="sustainability">
+    <div class="content py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="block-hero-25">
+          <div class="row gutter-50">
+            <div class="col-lg-5" data-animate="fadeInUp"> <img src="/static/web/assets/about/sustainability.jpg" alt="sustainability"> </div>
+            <div class="col-lg-5 align-sel f-center " >
+              <div class="heading-block" >
+                <h3 style="color: #c39c61;">同樣的建築，不一樣的用心<br>
+                  賦予居所新價值</h3>
+                <p style="color: #c39c61;">VALUE INNOVATION</p>
+              </div>
+              <h4>黃金級綠建築∞智慧建築標章<br>
+                規劃初期即視為首重</h4>
+              <h4>陽光、空氣、淨水<br>
+                守護地球使命 傳承永恆舒居</h4>
+              <p class="main-p">建築規劃初期，即以獲取智慧建築標章、綠建築標章為目標前進。針對生態保育、物種多樣性、能源再生等全方位設計，透過尖端科技整合，同步國際潮流，達到便利、健康、節能的宜居生活。</p>
+            </div>
+            <div class="col-12 col-lg-2 ">
+              <div class="row">
+                <div class="col-6 col-lg-12 mb-3"> <img src="/static/web/assets/about/sustainability-07.png" alt="story-image"> </div>
+                <div class="col-6 col-lg-12"> <img src="/static/web/assets/about/sustainability-08.png" alt="story-image"> </div>
+              </div>
+            </div>
+            <div class="col col-lg-5 order-5 order-lg-4"></div>
+            <div class="col-12 col-lg-7 order-4 order-lg-5 mb-6 mt-n2">
+              <h4>你的想法 我們最在意 追求卓越 尋求共榮 <br>
+                讓住戶放下心中四塊大石</h4>
+              <img src="/static/web/assets/about/sustainability-06.png" alt="story-image"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #永續價值 end --> 
+  
+  <!-- 過場線
+		============================================= -->
+  <div class="svg-divider mb-6">
+    <svg id="" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+      <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+    </svg>
+  </div>
+  
+  <!-- #過場線 end --> 
+  
+  <!-- 公益活動
+		============================================= -->
+  <section id="charity">
+    <div class="content py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="row">
+          <div class="col-lg-12" data-animate="fadeInUp">
+            <div class="heading-block" >
+              <h3 style="color: #c39c61;">公益活動</h3>
+              <p style="color: #c39c61;">CHARITY ACTIVITIES</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Portfolio Items
+					============================================= -->
+        <div id="portfolio" class="portfolio">
+          <!-- Articles will be dynamically inserted here -->
+        </div>
+        <!-- #portfolio end --> 
+        
+      </div>
+    </div>
+  </section>
+  <!-- #公益活動 end --> 
+  
+  <!-- Article Modal Template -->
+  <div id="articleModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row col-mb-30">
+            <div class="col-md-5" id="modal-images-column">
+              <!-- Images will be dynamically inserted here -->
+            </div>
+            <div class="col-md-7" id="modal-content-column">
+              <h3 class="modal-article-title"></h3>
+              <span class="modal-article-date"></span>
+              <p class="modal-article-content"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 過場線
+		============================================= -->
+  <div class="svg-divider mb-6">
+    <svg id="" data-name="V" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+      <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+    </svg>
+  </div>
+  
+  <!-- #過場線 end --> 
+  
+  <!-- 6S
+		============================================= -->
+  <section id="6s" class="mt-6 mb-6">
+    <div class="content py-lg-0">
+      <div class="container" > 
+        
+        <!-- Section light
+					============================================= -->
+        <div class="block-hero-25">
+          <div class="row align-items-lg-center gutter-50">
+            <div class="col-lg-12 " data-animate="fadeInUp">
+              <div id="bs-carousel-line" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-0.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/0.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-01.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/01.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-02.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/02.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-03.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/03.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-04.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/04.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-05.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/05.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-06.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/06.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-07.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/07.png" alt="Slide"> </picture>
+                  </div>
+                  <div class="carousel-item">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/static/web/assets/about/6S/m-08.png">
+                      <img class="d-block w-100" src="/static/web/assets/about/6S/08.png" alt="Slide"> </picture>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#bs-carousel-line" role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </a> <a class="carousel-control-next" href="#bs-carousel-line" role="button" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- #6S end --> 
+  
+  <!-- Footer
+		============================================= -->
+  <footer id="footer" class="bg-primary dark border-width-1 border-f5 block-footer-1">
+    <div class="container"> 
+      
+      <!-- Footer Widgets
+				============================================= -->
+      <div class="footer-widgets-wrap">
+        <div class="row col-mb-50">
+          <div class="col-lg-3 col-sm-12 order-2 order-lg-1">
+            <div class="widget"> <img src="/static/web/assets/footer-logo.png" alt="Image" class="footer-logo" height="60"> </div>
+            <p>服務時間:週一至週五(09:00〜18:00)<br>
+              地址:新北市板橋區民生路1段33號5樓之2<br>
+              電話:02-2951-2789</p>
+            <div> <a href="#" class="social-icon border-transparent h-bg-facebook"> <i class="fa-brands fa-facebook-f"></i> <i class="fa-brands fa-facebook-f"></i> </a> <a href="#" class="social-icon border-transparent h-bg-line"> <i class="bi-line"></i> <i class="bi-line"></i> </a> <a href="#" class="social-icon border-transparent h-bg-instagram"> <i class="bi-instagram"></i> <i class="bi-instagram"></i> </a> </div>
+          </div>
+          <div class="col-lg-9 col-sm-12 order-1 order-lg-2">
+            <div class="row">
+              <div class="col-lg-f-7 col-3 mb-5">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">關於峻勝<br>
+                    ABOUT</h4>
+                  <ul>
+                    <li><a href="/static/web/about.html">關於峻勝</a></li>
+                    <li><a href="/static/web/about.html#brand-senses">核心理念</a></li>
+                    <li><a href="/static/web/about.html#cooperate">緣起合建</a></li>
+                    <li><a href="/static/web/about.html#sustainability">永續價值</a></li>
+                    <li><a href="/static/web/about.html#charity">公益活動</a></li>
+                    <li><a href="/static/web/about.html#6s">六感建築</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">最新情報<br>
+                    NEWS</h4>
+                  <ul>
+                    <li><a href="/static/web/news.html#case">個案新訊</a></li>
+                    <li><a href="/static/web/news.html#policy">政策快遞</a></li>
+                    <li><a href="/static/web/news.html#h-market">房市新訊</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">專業陣容<br>
+                    TEAM</h4>
+                  <ul>
+                    <li><a href="/static/web/teams.html#create">營造陣容</a></li>
+                    <li><a href="/static/web/teams.html#building">建築陣容</a></li>
+                    <li><a href="/static/web/teams.html#design">設計陣容</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">峻勝築績<br>
+                    PROJECT</h4>
+                  <ul>
+                    <li><a href="/static/web/project.html#hotline">線上熱銷</a></li>
+                    <li><a href="/static/web/project.html#history">歷年業績</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">合作專區<br>
+                    RENEW</h4>
+                  <ul>
+                    <li><a href="/static/web/renew.html#renewal-oldage">都更危老</a></li>
+                    <li><a href="/static/web/renew.html#advantages1">峻勝優勢</a></li>
+                    <li><a href="/static/web/renew.html#cityrenew">都更專區</a></li>
+                    <li><a href="/static/web/renew.html#dan-oldhouse">危老專區</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">客户中心<br>
+                    SERVICE</h4>
+                  <ul>
+                    <li><a href="/static/web/service.html#project-progress">工程進度</a></li>
+                    <li><a href="/static/web/service.html#pay-history">繳款紀錄</a></li>
+                    <li><a href="/static/web/service.html#online-repair">線上報修</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-f-7 col-3">
+                <div class="widget widget_links">
+                  <h4 class="text-transform-none ls-0 text-center">聯絡我們<br>
+                    CONTACT</h4>
+                  <ul>
+                    <li><a href="/static/web/contact.html">意見回饋</a></li>
+                    <li><a href="/static/web/contact.html#footer">基本資料</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- .footer-widgets-wrap end --> 
+      
+    </div>
+    
+    <!-- Copyrights
+			============================================= --> 
+    <!-- #copyrights end --> 
+  </footer>
+  <!-- #footer end --> 
+  
+</div>
+<!-- #wrapper end --> 
+
+<!-- Go To Top
+	============================================= -->
+<div id="gotoTop" class="uil uil-angle-up"></div>
+
+<!-- JavaScripts
+	============================================= --> 
+<script src="/static/web/js/plugins.min.js"></script> 
+<script src="/static/web/js/functions.bundle.js"></script> 
+<script src="/static/web/js/menu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Function to format date
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('zh-TW', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).replace(/\//g, '.');
+}
+
+// Function to create article HTML
+function createArticleHTML(article) {
+    return `
+        <div class="portfolio-item">
+            <div class="grid-inner">
+                <div class="portfolio-image">
+                    <a href="#" class="open-article-trigger" data-article-id="${article.id}">
+                        <img src="${article.cover_image}" alt="${article.title}" loading="lazy" class="cover-image-unified">
+                    </a>
+                </div>
+                <div class="portfolio-desc">
+                    <span>${formatDate(article.created_at)}</span>
+                    <h5>
+                        <a href="#" class="open-article-trigger" data-article-id="${article.id}">
+                            ${article.title}
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Function to fetch and display articles
+async function fetchArticles() {
+    console.log('fetchArticles: Starting to fetch articles');
+    try {
+        console.log('fetchArticles: Making API request');
+        const response = await fetch('/api/charities', {
+            credentials: 'include'
+        });
+        
+        console.log('fetchArticles: Response status:', response.status);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch articles: ${response.status} ${response.statusText}`);
+        }
+        
+        const articles = await response.json();
+        console.log('fetchArticles: Received articles:', articles);
+        
+        const container = document.querySelector('#portfolio');
+        if (!container) {
+            console.error('Portfolio container not found');
+            return;
+        }
+        
+        // Clear existing content
+        container.innerHTML = '';
+        
+        if (!articles || articles.length === 0) {
+            console.log('fetchArticles: No articles found');
+            container.innerHTML = '<div class="col-12 text-center">尚無公益活動資料</div>';
+            return;
+        }
+        
+        console.log('fetchArticles: Processing', articles.length, 'articles');
+        // Sort articles by created_at in descending order (newest first)
+        articles.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        
+        // Create and append article items
+        articles.forEach((article, index) => {
+            console.log(`fetchArticles: Creating HTML for article ${index + 1}:`, article);
+            const articleElement = document.createElement('div');
+            articleElement.innerHTML = createArticleHTML(article);
+            container.appendChild(articleElement.firstElementChild);
+        });
+        
+        // Initialize portfolio grid after articles are loaded
+        initializePortfolioGrid();
+        
+    } catch (error) {
+        console.error('Error in fetchArticles:', error);
+        const container = document.querySelector('#portfolio');
+        if (container) {
+            container.innerHTML = `<div class="col-12 text-center text-danger">載入公益活動資料失敗: ${error.message}</div>`;
+        }
+    }
+}
+
+// Load articles when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded: Page loaded, calling fetchArticles');
+    fetchArticles();
+
+    // Re-add event listener for when article triggers are clicked
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('.open-article-trigger');
+        if (target) {
+            event.preventDefault(); // Prevent default link behavior
+            const articleId = target.getAttribute('data-article-id');
+            if (articleId) {
+                openArticleModal(articleId);
+            }
+        }
+    });
+});
+
+// Initialize portfolio grid after articles are loaded
+function initializePortfolioGrid() {
+    console.log('Initializing portfolio grid after articles loaded');
+    const portfolio = document.querySelector('#portfolio');
+    if (portfolio) {
+        // Force grid refresh
+        portfolio.style.display = 'none';
+        setTimeout(() => {
+            portfolio.style.display = 'grid';
+            portfolio.style.gridTemplateColumns = 'repeat(auto-fill, 295px)';
+            portfolio.style.gap = '20px';
+            portfolio.style.padding = '20px 0';
+            
+            // Add masonry-like behavior
+            const items = portfolio.querySelectorAll('.portfolio-item');
+            items.forEach(item => {
+                item.style.breakInside = 'avoid';
+                item.style.marginBottom = '20px';
+            });
+            
+            // Ensure images are loaded
+            const images = portfolio.querySelectorAll('img');
+            images.forEach(img => {
+                if (!img.complete) {
+                    img.onload = () => {
+                        // Force layout recalculation after image loads
+                        portfolio.style.display = 'none';
+                        setTimeout(() => {
+                            portfolio.style.display = 'grid';
+                        }, 50);
+                    };
+                }
+            });
+        }, 100);
+    }
+}
+
+// Update openArticleModal function
+async function openArticleModal(articleId) {
+  try {
+    const response = await fetch(`/api/charities/${articleId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch article details');
+    }
+    const article = await response.json();
+
+    const modalTitle = document.querySelector('#articleModal .modal-title');
+    const modalImagesColumn = document.getElementById('modal-images-column');
+    const modalContentColumn = document.getElementById('modal-content-column');
+
+    if (!modalTitle || !modalImagesColumn || !modalContentColumn) {
+      console.error('Modal elements not found');
+      return;
+    }
+
+    // Clear previous content
+    modalImagesColumn.innerHTML = '';
+    modalContentColumn.innerHTML = '';
+
+    // Set modal title
+    modalTitle.textContent = article.title || '文章詳情';
+
+    // Add images to the left column
+    // if (article.cover_image) {
+    //   modalImagesColumn.innerHTML += `<img src="${article.cover_image}" alt="${article.title}" class="img-fluid mb-3" style="max-width:100%; height:auto; border-radius:8px;">`;
+    // }
+    if (article.small_image1) {
+      modalImagesColumn.innerHTML += `<img src="${article.small_image1}" alt="${article.title} (小圖1)" class="img-fluid mb-3" style="max-width:100%; height:auto; border-radius:8px;">`;
+    }
+    if (article.small_image2) {
+      modalImagesColumn.innerHTML += `<img src="${article.small_image2}" alt="${article.title} (小圖2)" class="img-fluid mb-3" style="max-width:100%; height:auto; border-radius:8px;">`;
+    }
+
+    // Add content to the right column
+    modalContentColumn.innerHTML = `
+      <h3 class="modal-article-title">${article.title || ''}</h3>
+      <span class="modal-article-date">${formatDate(article.created_at) || ''}</span>
+      <p class="modal-article-content">${article.content || ''}</p>
+    `;
+
+    new bootstrap.Modal(document.getElementById('articleModal')).show();
+  } catch (error) {
+    console.error('Error opening article modal:', error);
+    alert('無法載入文章詳情，請稍後再試。');
+  }
+}
+</script>
+</body>
+</html>

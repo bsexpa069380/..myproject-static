@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tw">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="author" content="Action Sharon James">
+	<meta name="description" content="峻勝建設開發官網">
+
+	<!-- Font Imports -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/static/web/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/static/web/css/font-icons.css">
+	
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/static/web/css/swiper.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/static/web/css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Document Title
+	============================================= -->
+	<title>邑城仰睦-文章</title>
+
+	
+
+</head>
+	<style>
+		h1 , h2 {
+			color: #C49A6C;
+		}
+		
+		p{
+			font-family: Microsoft JhengHei;
+		}
+
+	
+    .img-thumbnail {
+      cursor: pointer;
+    }
+
+    #previewBox {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #previewImage {
+      max-width: 100%;
+      border: 3px solid #ddd;
+    }
+	
+	</style>
+
+<body class="stretched overlay-menu">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+		
+		
+		<header id="header" class="full-header transparent-header transparent-header-responsive" >
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="/static/web/index.html">
+								<img class="logo-default" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+								<img class="logo-dark" srcset="/static/web/images/logo.png, /static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+							</a>
+						</div><!-- #logo end -->
+
+					
+
+						<div class="primary-menu-trigger">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu">
+							<button class="menu-close" type="button" title="關閉選單">
+								<span class="menu-close-icon"></span>
+							</button>
+							<ul class="menu-container">
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/about.html"><div>關於峻勝<br>ABOUT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/news.html"><div>最新情報<br>NEWS</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/teams.html"><div>專業陣容<br>TEAM</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/project.html"><div>峻勝築績<br>PROJECT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/renew.html"><div>合作專區<br>RENEW</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/service.html"><div>客户中心<br>SERVICE</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/contact.html"><div>聯絡我們<br>CONTACT</div></a>
+								</li>
+							
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+						
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header>
+
+
+		
+ <!-- 房市新訊 Housing Market News
+		============================================= -->
+		<section id="h-market">
+			<div class="content-wrap">
+			  <div class="container" > 
+				
+				<!-- Section light
+							============================================= -->
+				  <div class="row">
+					<div class="col-lg-12 align-sel f-center mb-lg-0" >
+					  <div class="custom-title-box">
+						<h2 class="custom-title">個案資訊</h2>
+					  </div>
+					</div>
+				  </div>
+			  </div>
+			</div>
+		  </section>
+		  <!-- #房市新訊 end --> 		
+		
+		
+		
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="">
+				<div class="container">
+
+					<div class="single-post mb-0">
+						
+						<!-- Entry Image
+							============================================= -->
+							<div class="entry-image mb-5">
+								<img id="articleCoverImage" src="" alt="Article Cover">
+							</div><!-- .entry-image end -->
+
+							<!-- Entry Title
+							============================================= -->
+							<div class="entry-title">
+								<h2 id="articleTitle">文章標題</h2>
+							</div><!-- .entry-title end -->
+
+							<!-- Entry Meta
+							============================================= -->
+							<div class="entry-meta">
+								<ul>
+									<li><i class="uil uil-schedule"></i><span id="articleDate">0000-00-00</span></li>
+								</ul>
+						
+
+							
+
+							<!-- Entry Content
+							============================================= -->
+							<div class="mt-4">
+								<div id="articleContent"></div>
+							</div>
+						</div><!-- .entry end -->
+
+							<div class="row">
+						<div class="col-lg-12">
+
+							<div class="row">
+							  <div class="col-4">
+								  <img alt="100%x180" src="/static/web/assets/news/400x250.png" class="img-thumbnail w-100 d-block" onclick="showPreview(this)">
+							  </div>
+							  <div class="col-4">
+								  <img alt="100%x180" src="/static/web/assets/news/400x250.png" class="img-thumbnail w-100 d-block" onclick="showPreview(this)">
+							  </div>
+							  <div class="col-4">
+								  <img alt="100%x180" src="/static/web/assets/news/400x250.png" class="img-thumbnail w-100 d-block" onclick="showPreview(this)">
+							  </div>
+							</div>
+							
+							<div class="row" id="previewBox">
+								<div class="col-12 text-center">
+								  <img id="previewImage" src="" alt="放大圖片">
+								</div>
+							  </div>
+
+						
+				
+
+				</div>
+			</div>
+						
+						
+
+				
+
+					</div>
+					
+					
+					
+				
+					
+					</div>
+					</div>
+		</section><!-- #content end -->
+		
+		
+		
+
+		
+
+		<!-- back to news
+		============================================= -->
+		<section class="page-title">
+			<div class="container">
+
+					<div class="page-title-content text-center">
+						<a href="/static/web/news.html"><h2>回上一頁</h2></a>
+					</div>
+				
+			</div>
+		</section><!-- back to news end -->
+		
+		
+		
+		
+		
+
+		
+			<!-- Footer
+		============================================= -->
+		<footer id="footer" class="bg-primary dark border-width-1 border-f5 block-footer-1">
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row col-mb-50">
+						<div class="col-lg-3 col-sm-12 order-2 order-lg-1">
+
+							<div class="widget">
+								<img src="/static/web/assets/footer-logo.png" alt="Image" class="footer-logo" height="60">
+							</div>
+							
+							<p>服務時間:週一至週五(09:00〜18:00)<br>地址:新北市板橋區民生路1段33號5樓之2<br>電話:02-2951-2789</p>
+							
+							<div>
+									<a href="#" class="social-icon border-transparent h-bg-facebook">
+										<i class="fa-brands fa-facebook-f"></i>
+										<i class="fa-brands fa-facebook-f"></i>
+									</a>
+								
+								<a href="#" class="social-icon border-transparent h-bg-line">
+										<i class="bi-line"></i>
+										<i class="bi-line"></i>
+									</a>
+
+									<a href="#" class="social-icon border-transparent h-bg-instagram">
+										<i class="bi-instagram"></i>
+										<i class="bi-instagram"></i>
+									</a>
+
+									
+								</div>
+
+						</div>
+
+						<div class="col-lg-9 col-sm-12 order-1 order-lg-2">
+
+							<div class="row">
+								<div class="col-lg-f-7 col-3 mb-5">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">關於峻勝<br>ABOUT</h4>
+										<ul>
+											<li><a href="/static/web/about.html">關於峻勝</a></li>
+											<li><a href="/static/web/about.html#brand-senses">核心理念</a></li>
+											<li><a href="/static/web/about.html#cooperate">緣起合建</a></li>
+											<li><a href="/static/web/about.html#sustainability">永續價值</a></li>
+											<li><a href="/static/web/about.html#charity">公益活动</a></li>
+											<li><a href="/static/web/about.html#6s">六感建築</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">最新情報<br>NEWS</h4>
+										<ul>
+											<li><a href="/static/web/news.html#case">個案新訊</a></li>
+											<li><a href="/static/web/news.html#policy">政策快遞</a></li>
+											<li><a href="/static/web/news.html#h-market">房市新讯</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">專業陣容<br>TEAM</h4>
+										<ul>
+											<li><a href="/static/web/teams.html#create">營造陣容</a></li>
+											<li><a href="/static/web/teams.html#building">建築陣容</a></li>
+											<li><a href="/static/web/teams.html#design">設計陣容</a></li>
+										</ul>
+
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+
+									<div class="widget widget_links">
+
+										<h4 class="text-transform-none ls-0 text-center">峻勝築績<br>PROJECT</h4>
+										<ul>
+										    <li><a href="/static/web/project.html#hotline">線上熱銷</a></li>
+											<li><a href="/static/web/project.html#history">歷年業績</a></li>
+										</ul>
+
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">合作專區<br>RENEW</h4>
+										<ul>
+											<li><a href="/static/web/renew.html#renewal-oldage">都更危老</a></li>
+											<li><a href="/static/web/renew.html#advantages1">峻勝優勢</a></li>
+											<li><a href="/static/web/renew.html#cityrenew">都更專區</a></li>
+											<li><a href="/static/web/renew.html#dan-oldhouse">危老專區</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">客户中心<br>SERVICE</h4>
+										<ul>
+											<li><a href="/static/web/service.html#project-progress">工程進度</a></li>
+											<li><a href="/static/web/service.html#pay-history">繳款紀錄</a></li>
+											<li><a href="/static/web/service.html#online-repair">線上報修</a></li>
+										</ul>
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">聯絡我們<br>CONTACT</h4>
+										<ul>
+											<li><a href="/static/web/contact.html">意見回饋</a></li>
+											<li><a href="/static/web/contact.html#footer">基本資料</a></li>
+										</ul>
+									</div>
+								</div>
+					
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<!-- #copyrights end -->
+		</footer><!-- #footer end -->
+
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="/static/web/js/plugins.min.js"></script>
+	<script src="/static/web/js/functions.bundle.js"></script>
+	<script src="/static/web/js/menu.js"></script>
+
+	<script>
+		function showPreview(img) {
+		  const previewBox = document.getElementById('previewBox');
+		  const previewImage = document.getElementById('previewImage');
+		  previewImage.src = img.src;
+		  previewBox.style.display = 'block';
+		}
+
+		// Function to format date
+		function formatDate(dateString) {
+			const date = new Date(dateString);
+			return date.toLocaleDateString('zh-TW', {
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit'
+			}).replace(/\//g, '-');
+		}
+
+		// Function to get URL parameters
+		function getUrlParameter(name) {
+			name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+			const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+			const results = regex.exec(location.search);
+			return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		}
+
+		// Function to fetch and display article
+		async function fetchArticle() {
+			const articleId = getUrlParameter('id');
+			if (!articleId) {
+				console.error('No article ID provided');
+				return;
+			}
+
+			try {
+				const response = await fetch(`/api/cases/${articleId}`, {
+					credentials: 'include'
+				});
+
+				if (!response.ok) {
+					throw new Error('Failed to fetch article');
+				}
+
+				const article = await response.json();
+				console.log('Article data:', article); // Debug log
+
+				// Update page title
+				document.title = `${article.title} - 邑城仰睦`;
+
+				// Update article content
+				document.getElementById('articleTitle').textContent = article.title;
+				document.getElementById('articleDate').textContent = formatDate(article.created_at);
+				document.getElementById('articleCoverImage').src = article.cover_image;
+				document.getElementById('articleCoverImage').alt = article.title;
+				
+				// Update article content
+				const contentDiv = document.getElementById('articleContent');
+				contentDiv.innerHTML = article.content;
+
+				// Update the three images below the content
+				const imageContainers = document.querySelectorAll('.col-4 img');
+				const images = [article.small_image1, article.small_image2, article.small_image3];
+				console.log('Additional images:', images); // Debug log
+				
+				imageContainers.forEach((img, index) => {
+					console.log(`Setting image ${index + 1}:`, images[index]); // Debug log
+					if (images[index]) {
+						img.src = images[index];
+						img.alt = `${article.title} - 圖片 ${index + 1}`;
+					} else {
+						// Use placeholder image if no image is available
+						img.src = '/static/web/assets/news/400x250.png';
+						img.alt = 'No image available';
+					}
+				});
+
+			} catch (error) {
+				console.error('Error fetching article:', error);
+				document.getElementById('articleContent').innerHTML = '<div class="alert alert-danger">載入文章失敗</div>';
+			}
+		}
+
+		// Load article when the page loads
+		document.addEventListener('DOMContentLoaded', fetchArticle);
+	</script>
+
+</body>
+</html>

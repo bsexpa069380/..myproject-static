@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tw">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="author" content="Action Sharon James">
+	<meta name="description" content="峻勝建設開發官網">
+
+	<!-- Font Imports -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/static/web/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/static/web/css/font-icons.css">
+	
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/static/web/css/swiper.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/static/web/css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Document Title
+	============================================= -->
+	<title>邑城仰睦-客戶中心</title>
+
+	<style>
+		.portfolio-single-image {
+			display: none; /* Hide the gallery container initially */
+		}
+		.masonry-thumbs {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1rem;
+		}
+		.grid-item {
+			width: 100%;
+			aspect-ratio: 1;
+			overflow: hidden;
+			border-radius: 0.5rem;
+			margin-bottom: 1rem;
+		}
+		.grid-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	</style>
+
+</head>
+
+<body class="stretched overlay-menu">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+		
+		
+		<header id="header" class="full-header transparent-header transparent-header-responsive" >
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="/static/web/index.html">
+								<img class="logo-default" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+								<img class="logo-dark" srcset="/static/web/images/logo.png" src="/static/web/images/logo.png" alt="Logo">
+							</a>
+						</div><!-- #logo end -->
+
+					
+
+						<div class="primary-menu-trigger">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu">
+							<button class="menu-close" type="button" title="關閉選單">
+								<span class="menu-close-icon"></span>
+							</button>
+
+							<ul class="menu-container">
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/about.html"><div>關於峻勝<br>ABOUT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/news.html"><div>最新情報<br>NEWS</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/teams.html"><div>專業陣容<br>TEAM</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/project.html"><div>峻勝築績<br>PROJECT</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/renew.html"><div>合作專區<br>RENEW</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/service.html"><div>客户中心<br>SERVICE</div></a>
+								</li>
+								<li class="menu-item">
+									<a class="menu-link" href="/static/web/contact.html"><div>聯絡我們<br>CONTACT</div></a>
+								</li>
+							
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+						
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header>
+
+		<!-- 工程進度
+		============================================= -->
+		<section id="project-progress">
+			<div class="content-wrap py-lg-0">
+				<div class="container" >
+					<!-- Section light
+					============================================= -->
+						<div class="row gutter-50 mb-9">
+							<div class="col-lg-12 align-sel f-center" >
+								 <div class="custom-title-box">
+ 								  <h2 class="custom-title">工程進度</h2>
+								 </div>
+							</div>
+							<div class="row">
+								 <div class="col-lg-4">
+									 <div class="card border-0 p-4">
+									<div class="card-body py-4" style="background-color:#2d4b3c; ">
+										<div class="form-widget">
+
+											<form class="mb-0" id="template-contactform" name="template-contactform" onsubmit="return false;">
+												
+
+												<div class="row">
+													<div class="form-group">
+														<label for="建案名稱" class="text-white">選擇建案名稱</label>
+														<select class="form-select required" id="exampleFormControlSelect1">
+														   <option value="">選擇建案</option>
+														</select>
+												     </div>
+													<div class="col-12">
+									                   <label for="inputPassword" class="text-white">輸入密碼</label>
+									                   <input type="password" class="form-control required" id="inputPassword2" placeholder="需有密碼方能查詢">
+								                    </div>
+
+											
+
+													<div class="col-12 form-group mb-0">
+														<button class="btn text-white py-2 w-100 mt-5" type="button" id="viewProjectBtn" style="background-color:#c39c61;">查看工程</button>
+													</div>
+												</div>
+
+												
+
+											</form>
+										</div>
+									</div>
+								</div>
+								 </div>
+								 
+								 <div class="col-lg-8 p-4 portfolio-single-image">
+									 
+									 <div class="masonry-thumbs" data-lightbox="gallery">
+										 <!-- Images will be inserted here -->
+									</div>
+									 
+								 </div>
+				
+						
+												
+					       </div>
+						</div>
+						
+
+				</div>
+
+			</div>
+		</section><!-- #工程進度 end -->
+		
+		<!-- 過場線
+		============================================= -->
+		<div class="svg-divider mb-6">
+          <svg id="" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+             <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+          </svg>
+        </div>
+		
+		<!-- #過場線 end -->
+		
+		<section id="pay-history">
+			<div class="content-wrap py-lg-0">
+			  <div class="container" > 
+				<!-- Section light
+			 ============================================= -->
+				<div class="row gutter-50 mb-9">
+				  <div class="col-lg-12 align-sel f-center" >
+					<div class="custom-title-box">
+					  <h2 class="custom-title">繳款紀錄</h2>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-lg-4">
+					  <div class="card border-0 p-4">
+						<div class="card-body py-4" style="background-color:#2d4b3c; ">
+						  <div class="form-widget">
+							<form class="mb-0" id="template-bank" name="template-contactform" action="include/form.php" method="post">
+							  <div class="row">
+								<div class="form-group">
+								  <label for="建案名稱" class="text-white">選擇建案名稱</label>
+								  <select class="form-select required" id="bank">
+									<option>選擇建案</option>
+									<option>1</option>
+									<option>2</option>
+								  </select>
+								</div>
+								<div class="col-12 form-group mb-0">
+								  <button class="btn text-white py-2 w-100 mt-5" type="button" id="show-project" style="background-color:#c39c61;"> 查看繳款紀錄 </button>
+								</div>
+							  </div>
+							  <input type="hidden" name="prefix" value="template-contactform-">
+							</form>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<div class="col-lg-8 p-4">
+					  <div class="row">
+						<div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+						  <a id="project-link" href="#" style="pointer-events: none;" target="_blank">
+							<img id="project-image" alt="建案圖片" src="" class="img-thumbnail w-100 d-block d-none">
+						  </a>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </section>
+		  <!-- #繳款紀錄 end -->
+		
+		<!-- 過場線
+		============================================= -->
+		<div class="svg-divider mb-6">
+          <svg id="" data-name="" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1480.3 104.1">
+             <polyline class="st0" points="0 .5 740.2 103.6 1480.3 .5"/>
+          </svg>
+        </div>
+		
+		<!-- #過場線 end -->
+		
+		<!--線上報修
+		============================================= -->
+		<section id="online-repair">
+			<div class="content-wrap py-lg-0">
+				<div class="container" >
+					<!-- Section light
+					============================================= -->
+						<div class="row gutter-50 mb-9">
+							<div class="col-lg-12 align-sel f-center" >
+								 <div class="custom-title-box">
+ 								  <h2 class="custom-title">線上報修</h2>
+								 </div>
+							</div>
+							<div class="row mt-6">
+								 <div class="col-lg-12">
+									 <div class="card bg-primary" style="color: aliceblue;">
+								
+								<div class="card-body px-md-6">
+
+									<p class="mb-4 fw-normal mt-4">一次購屋終生服務,守護您的幸福家園。峻勝建設機構以真心的關懷與誠摯的態度,為您提供線上報修服務,請填妥以下資料,我們將盡快為您服務,謝謝!</p>
+									
+									<div class="line line-sm mt-0"></div>
+
+									<div class="form-widget">
+
+										<div class="form-result"></div>
+
+										<form class="mb-0" id="repairForm" name="repairForm" onsubmit="return false;">
+
+											<div class="form-process">
+												<div class="css3-spinner">
+													<div class="css3-spinner-scaler"></div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-name">姓名 <small>*</small></label>
+													<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="form-control required">
+												</div>
+
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-phone">電話 <small>*</small></label>
+													<input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="form-control required">
+												</div>
+												
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-email">Email <small>*</small></label>
+													<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email form-control">
+												</div>
+
+												<div class="w-100"></div>
+
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-company">社區案名 <small>*</small></label>
+													<input type="text" id="template-contactform-casename" name="company" value="" class="required form-control">
+												</div>
+
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-date">戶名 <small>*</small></label>
+													<input type="text" value="" class="form-control required" id="template-contactform-accountname" name="template-contactform-戶名">
+												</div>
+												
+												<div class="col-lg-4 col-12 form-group">
+													<label for="template-contactform-item">維修項目 <small>*</small></label>
+													<input type="text" value="" class="form-control required" id="template-contactform-item" name="template-contactform-item">
+												</div>
+
+												<div class="w-100"></div>
+
+												<div class="col-12 form-group">
+													<label for="template-contactform-message">維修問題</label>
+													<textarea class="form-control required" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+												</div>
+
+												<div class="col-12 form-group d-none">
+													<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="form-control">
+												</div>
+
+												<div class="col-12 my-4 v-line-box">
+														<button class="btn text-white py-2 w-50 mt-5" type="submit" id="" name="template-contactform-submit" value="submit" style="background-color:#c39c61;">送出表單</button>
+												</div>
+											</div>
+
+											<input type="hidden" name="prefix" value="template-contactform-">
+
+										</form>
+									</div>
+
+								</div>
+							</div>
+								 </div>
+								 
+								 
+						
+												
+					       </div>
+						</div>
+						
+
+				</div>
+
+			</div>
+		</section><!-- #繳款紀錄 end -->
+		
+		
+		
+
+		
+
+		
+		
+		
+		
+		
+		
+
+		
+			<!-- Footer
+		============================================= -->
+		<footer id="footer" class="bg-primary dark border-width-1 border-f5 block-footer-1">
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row col-mb-50">
+						<div class="col-lg-3 col-sm-12 order-2 order-lg-1">
+
+							<div class="widget">
+								<img src="/static/web/assets/footer-logo.png" alt="Image" class="footer-logo" height="60">
+							</div>
+							
+							<p>服務時間:週一至週五(09:00〜18:00)<br>地址:新北市板橋區民生路1段33號5樓之2<br>電話:02-2951-2789</p>
+							
+							<div>
+									<a href="#" class="social-icon border-transparent h-bg-facebook">
+										<i class="fa-brands fa-facebook-f"></i>
+										<i class="fa-brands fa-facebook-f"></i>
+									</a>
+								
+								<a href="#" class="social-icon border-transparent h-bg-line">
+										<i class="bi-line"></i>
+										<i class="bi-line"></i>
+									</a>
+
+									<a href="#" class="social-icon border-transparent h-bg-instagram">
+										<i class="bi-instagram"></i>
+										<i class="bi-instagram"></i>
+									</a>
+
+									
+								</div>
+
+						</div>
+
+						<div class="col-lg-9 col-sm-12 order-1 order-lg-2">
+
+							<div class="row">
+								<div class="col-lg-f-7 col-3 mb-5">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">關於峻勝<br>ABOUT</h4>
+										<ul>
+											<li><a href="/static/web/about.html">關於峻勝</a></li>
+											<li><a href="/static/web/about.html#brand-senses">核心理念</a></li>
+											<li><a href="/static/web/about.html#cooperate">緣起合建</a></li>
+											<li><a href="/static/web/about.html#sustainability">永續價值</a></li>
+											<li><a href="/static/web/about.html#charity">公益活动</a></li>
+											<li><a href="/static/web/about.html#6s">六感建築</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">最新情報<br>NEWS</h4>
+										<ul>
+											<li><a href="/static/web/news.html#case">個案新訊</a></li>
+											<li><a href="/static/web/news.html#policy">政策快遞</a></li>
+											<li><a href="/static/web/news.html#h-market">房市新讯</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">專業陣容<br>TEAM</h4>
+										<ul>
+											<li><a href="/static/web/teams.html#create">營造陣容</a></li>
+											<li><a href="/static/web/teams.html#building">建築陣容</a></li>
+											<li><a href="/static/web/teams.html#design">設計陣容</a></li>
+										</ul>
+
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+
+									<div class="widget widget_links">
+
+										<h4 class="text-transform-none ls-0 text-center">峻勝築績<br>PROJECT</h4>
+										<ul>
+										    <li><a href="/static/web/project.html#hotline">線上熱銷</a></li>
+											<li><a href="/static/web/project.html#history">歷年業績</a></li>
+										</ul>
+
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">合作專區<br>RENEW</h4>
+										<ul>
+											<li><a href="/static/web/renew.html#renewal-oldage">都更危老</a></li>
+											<li><a href="/static/web/renew.html#advantages1">峻勝優勢</a></li>
+											<li><a href="/static/web/renew.html#cityrenew">都更專區</a></li>
+											<li><a href="/static/web/renew.html#dan-oldhouse">危老專區</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">客户中心<br>SERVICE</h4>
+										<ul>
+											<li><a href="/static/web/service.html#project-progress">工程進度</a></li>
+											<li><a href="/static/web/service.html#pay-history">繳款紀錄</a></li>
+											<li><a href="/static/web/service.html#online-repair">線上報修</a></li>
+										</ul>
+									</div>
+
+								</div>
+								<div class="col-lg-f-7 col-3">
+									<div class="widget widget_links">
+										<h4 class="text-transform-none ls-0 text-center">聯絡我們<br>CONTACT</h4>
+										<ul>
+											<li><a href="/static/web/contact.html">意見回饋</a></li>
+											<li><a href="/static/web/contact.html#footer">基本資料</a></li>
+										</ul>
+									</div>
+								</div>
+					
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<!-- #copyrights end -->
+		</footer><!-- #footer end -->
+
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="uil uil-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="/static/web/js/plugins.min.js"></script>
+	<script src="/static/web/js/functions.bundle.js"></script>
+	<script src="/static/web/js/menu.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  // Populate project name select from backend
+	  fetch('/api/construct-photos')
+	    .then(res => res.json())
+	    .then(projects => {
+	      const select = document.getElementById('exampleFormControlSelect1');
+	      if (!select) return;
+	      select.innerHTML = '<option value="">選擇建案</option>';
+	      projects.forEach(project => {
+	        const option = document.createElement('option');
+	        option.value = project.id;
+	        option.textContent = project.title;
+	        select.appendChild(option);
+	      });
+	    })
+	    .catch(() => {});
+
+	  // Password check and gallery display
+	  const form = document.getElementById('template-contactform');
+	  const gallery = document.querySelector('.masonry-thumbs');
+	  const galleryContainer = document.querySelector('.portfolio-single-image');
+	  const viewProjectBtn = document.getElementById('viewProjectBtn');
+	  
+	  if (form && gallery && viewProjectBtn) {
+	    viewProjectBtn.addEventListener('click', async function() {
+	      const projectId = document.getElementById('exampleFormControlSelect1').value;
+	      const password = document.getElementById('inputPassword2').value;
+	      
+	      if (!projectId || !password) {
+	        alert('請選擇建案並輸入密碼');
+	        return;
+	      }
+	      
+	      try {
+	        const res = await fetch(`/api/construct-photos/${projectId}`);
+	        if (!res.ok) throw new Error('查詢失敗');
+	        const data = await res.json();
+	        console.log('API Response:', data);
+	        
+	        if (data.password !== password) {
+	          alert('密碼錯誤，請重新輸入');
+	          gallery.innerHTML = '';
+	          galleryContainer.style.display = 'none';
+	          return;
+	        }
+	        
+	        // Sort images by uploaded_at DESC (latest first)
+	        const images = (data.images || []).slice().sort((a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at));
+	        console.log('Sorted Images:', images);
+        
+	        if (images.length === 0) {
+	          gallery.innerHTML = '<div class="col-12 text-center">尚無工程照片</div>';
+	          galleryContainer.style.display = 'block';
+	          return;
+	        }
+	        
+	        // Clear existing gallery content
+	        gallery.innerHTML = '';
+	        
+	        // Create and append image elements
+	        images.forEach((img, index) => {
+	          console.log(`Creating image ${index}:`, img);
+	          const gridItem = document.createElement('div');
+	          gridItem.className = 'grid-item';
+	          
+	          const link = document.createElement('a');
+	          // Helper to get correct image URL
+	          function getImageUrl(url) {
+	            if (!url) return '/static/web/assets/service/300x300.png'; // fallback
+	            if (url.startsWith('http://') || url.startsWith('https://')) return url;
+	            return '/' + url.replace(/^\/+/,'');
+	          }
+	          // Ensure the image URL is absolute
+	          const imageUrl = getImageUrl(img.image_url);
+	          link.href = imageUrl;
+	          link.setAttribute('data-lightbox', 'gallery-item');
+	          
+	          const imgElement = document.createElement('img');
+	          imgElement.className = 'rounded-5';
+	          imgElement.src = imageUrl;
+	          imgElement.alt = '工程照片';
+	          
+	          // Add error handling for image loading
+	          imgElement.onerror = function() {
+	            console.error('Failed to load image:', imageUrl);
+	            this.src = '/static/web/assets/service/300x300.png'; // Fallback image
+	          };
+	          
+	          imgElement.onload = function() {
+	            console.log('Successfully loaded image:', imageUrl);
+	            // Show the gallery container when at least one image is loaded
+	            galleryContainer.style.display = 'block';
+	          };
+	          
+	          link.appendChild(imgElement);
+	          gridItem.appendChild(link);
+	          gallery.appendChild(gridItem);
+	        });
+	      } catch (err) {
+	        console.error('Error:', err);
+	        alert('查詢失敗，請稍後再試');
+	        gallery.innerHTML = '';
+	        galleryContainer.style.display = 'none';
+	      }
+	    });
+	  }
+
+	  // Online repair form handling
+	  const repairForm = document.getElementById('repairForm');
+	  if (repairForm) {
+	    repairForm.addEventListener('submit', async function(e) {
+	      e.preventDefault();
+	      
+	      // Get form data
+	      const formData = {
+	        name: document.getElementById('template-contactform-name').value,
+	        phone: document.getElementById('template-contactform-phone').value,
+	        email: document.getElementById('template-contactform-email').value,
+	        caseName: document.getElementById('template-contactform-casename').value,
+	        accountName: document.getElementById('template-contactform-accountname').value,
+	        repairItem: document.getElementById('template-contactform-item').value,
+	        message: document.getElementById('template-contactform-message').value
+	      };
+	      
+	      // Validate required fields
+	      if (!formData.name || !formData.phone || !formData.email || !formData.caseName || 
+	          !formData.accountName || !formData.repairItem || !formData.message) {
+	        alert('請填寫所有必填欄位');
+	        return;
+	      }
+	      
+	      // Validate email format
+	      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+	      if (!emailRegex.test(formData.email)) {
+	        alert('請輸入有效的電子郵件地址');
+	        return;
+	      }
+	      
+	      try {
+	        // Send repair request
+	        const response = await fetch('/api/send-repair-email', {
+	          method: 'POST',
+	          headers: {
+	            'Content-Type': 'application/json',
+	          },
+	          body: JSON.stringify(formData)
+	        });
+	        
+	        if (!response.ok) {
+	          throw new Error('發送失敗');
+	        }
+	        
+	        const result = await response.json();
+	        
+	        if (result.success) {
+	          alert('報修表單已送出，我們將盡快與您聯繫！');
+	          repairForm.reset();
+	        } else {
+	          throw new Error(result.message || '發送失敗');
+	        }
+	      } catch (error) {
+	        console.error('Error:', error);
+	        alert('發送失敗，請稍後再試');
+	      }
+	    });
+	  }
+	});
+
+	document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("bank");
+    const image = document.getElementById("project-image");
+    const link = document.getElementById("project-link");
+    const button = document.getElementById("show-project");
+
+    const projectData = {
+      "1": {
+        img: "assets/service/300x300.png",
+        url: "https://example.com/project1"
+      },
+      "2": {
+        img: "assets/service/300x300-2.png",
+        url: "https://example.com/project2"
+      }
+    };
+
+    button.addEventListener("click", function () {
+      const selected = select.value;
+      if (projectData[selected]) {
+        image.src = projectData[selected].img;
+        link.href = projectData[selected].url;
+        image.classList.remove("d-none");
+        link.style.pointerEvents = "auto";
+      } else {
+        alert("請先選擇建案名稱！");
+      }
+    });
+  });
+	</script>
+
+</body>
+</html>

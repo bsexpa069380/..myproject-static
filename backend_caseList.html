@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>個案資訊文章後台</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { padding: 20px; }
+    .preview {
+      max-height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .remove-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    .progress {
+      height: 20px;
+    }
+    .case-card {
+      margin-bottom: 20px;
+    }
+    .case-images {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+    .case-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>個案資訊文章清單</h2>
+    <a href="/static/admin_dashboard.html" class="btn btn-secondary">回首頁</a>
+  </div>
+  
+  <button class="btn btn-primary mb-3" onclick="showForm()">+ 新增文章</button>
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr><th>#</th><th>文章標題</th><th>編輯</th><th>刪除</th></tr>
+    </thead>
+    <tbody id="articleTableBody"></tbody>
+  </table>
+</div>
+
+<!-- Modal 表單 -->
+<div class="modal fade" id="articleModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="articleForm">
+        <div class="modal-header">
+          <h5 class="modal-title">新增/編輯文章</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="id" id="caseId">
+
+          <div class="mb-3">
+            <label class="form-label">封面圖</label>
+            <input type="file" class="form-control" name="image_cover" id="image_cover" accept="image/*">
+            <div id="preview_cover_container" class="d-flex align-items-center gap-2 mt-2">
+              <img id="preview_cover" class="preview d-none">
+              <span id="preview_cover_info"></span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">文章標題</label>
+            <input type="text" class="form-control" name="title" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">文章內文</label>
+            <textarea name="content" class="form-control" rows="6" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">小圖1</label>
+            <input type="file" class="form-control" name="image_1" id="image_1" accept="image/*">
+            <div id="preview_1_container" class="d-flex align-items-center gap-2 mt-2">
+              <img id="preview_1" class="preview d-none">
+              <span id="preview_1_info"></span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">小圖2</label>
+            <input type="file" class="form-control" name="image_2" id="image_2" accept="image/*">
+            <div id="preview_2_container" class="d-flex align-items-center gap-2 mt-2">
+              <img id="preview_2" class="preview d-none">
+              <span id="preview_2_info"></span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">小圖3</label>
+            <input type="file" class="form-control" name="image_3" id="image_3" accept="image/*">
+            <div id="preview_3_container" class="d-flex align-items-center gap-2 mt-2">
+              <img id="preview_3" class="preview d-none">
+              <span id="preview_3_info"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-success">送出</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast 訊息 -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+  <div id="toastMessage" class="toast align-items-center text-bg-primary border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">成功</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const API = "/api/cases";
+  let toast;
+
+  // Initialize toast when document is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const toastEl = document.getElementById('toastMessage');
+    if (toastEl) {
+      toast = new bootstrap.Toast(toastEl);
+    }
+  });
+
+  function showToast(message, success = true) {
+    const toastEl = document.getElementById('toastMessage');
+    const toastBody = document.getElementById('toastBody');
+    if (toastEl && toastBody) {
+      toastBody.textContent = message;
+      toastEl.className = `toast align-items-center text-bg-${success ? 'success' : 'danger'} border-0`;
+      if (toast) {
+        toast.show();
+      } else {
+        // Fallback if toast is not initialized
+        console.log(message);
+      }
+    }
+  }
+
+  function showForm(article = null) {
+    const modal = new bootstrap.Modal(document.getElementById('articleModal'));
+    modal.show();
+    const formEl = document.getElementById("articleForm");
+    formEl.reset();
+    formEl.id.value = article ? article.id : "";
+    formEl.title.value = article ? article.title : "";
+    formEl.content.value = article ? article.content : "";
+
+    // Get preview and info elements
+    const coverPreview = document.getElementById('preview_cover');
+    const small1Preview = document.getElementById('preview_1');
+    const small2Preview = document.getElementById('preview_2');
+    const small3Preview = document.getElementById('preview_3');
+    const coverInfo = document.getElementById('preview_cover_info');
+    const small1Info = document.getElementById('preview_1_info');
+    const small2Info = document.getElementById('preview_2_info');
+    const small3Info = document.getElementById('preview_3_info');
+
+    // Always clear file inputs themselves
+    document.getElementById('image_cover').value = '';
+    document.getElementById('image_1').value = '';
+    document.getElementById('image_2').value = '';
+    document.getElementById('image_3').value = '';
+
+    // Clear all previews initially
+    const allPreviews = [coverPreview, small1Preview, small2Preview, small3Preview];
+    const allInfos = [coverInfo, small1Info, small2Info, small3Info];
+    allPreviews.forEach(img => { img.classList.add('d-none'); img.src = ''; });
+    allInfos.forEach(span => span.textContent = '');
+
+    if (article) {
+      // Editing: Show original images if they exist
+      if (article.cover_image) {
+        coverPreview.src = article.cover_image;
+        coverPreview.classList.remove('d-none');
+        coverInfo.textContent = '已上傳';
+      }
+      if (article.small_image1) {
+        small1Preview.src = article.small_image1;
+        small1Preview.classList.remove('d-none');
+        small1Info.textContent = '已上傳';
+      }
+      if (article.small_image2) {
+        small2Preview.src = article.small_image2;
+        small2Preview.classList.remove('d-none');
+        small2Info.textContent = '已上傳';
+      }
+      if (article.small_image3) {
+        small3Preview.src = article.small_image3;
+        small3Preview.classList.remove('d-none');
+        small3Info.textContent = '已上傳';
+      }
+    }
+  }
+
+  // Consolidated Preview logic for file inputs
+  function setupImagePreview(inputId, previewId, infoId) {
+    document.getElementById(inputId).addEventListener('change', function (e) {
+      const file = e.target.files[0];
+      const preview = document.getElementById(previewId);
+      const info = document.getElementById(infoId);
+
+      if (!file) {
+        // File input cleared, hide preview and info
+        preview.classList.add('d-none');
+        preview.src = '';
+        info.textContent = '';
+        return;
+      }
+
+      if (file.type.startsWith('image/')) {
+        if (file.size > 1 * 1024 * 1024) {
+          showToast("圖片大小應小於 1MB", false);
+          e.target.value = ""; // Clear the input
+          preview.classList.add('d-none');
+          info.textContent = "";
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = ev => {
+          preview.src = ev.target.result;
+          preview.classList.remove('d-none');
+          info.textContent = `${file.name} (${Math.round(file.size / 1024)} KB)`;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        showToast("請選擇有效的圖片檔案 (JPG/PNG)", false);
+        e.target.value = ""; // Clear the input
+        preview.classList.add('d-none');
+        info.textContent = "";
+      }
+    });
+  }
+
+  // Set up preview listeners for each file input
+  setupImagePreview('image_cover', 'preview_cover', 'preview_cover_info');
+  setupImagePreview('image_1', 'preview_1', 'preview_1_info');
+  setupImagePreview('image_2', 'preview_2', 'preview_2_info');
+  setupImagePreview('image_3', 'preview_3', 'preview_3_info');
+
+  document.getElementById("articleForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Ensure all required fields are present
+    if (!formData.get('title') || !formData.get('content')) {
+      showToast("請填寫所有必填欄位", false);
+      return;
+    }
+
+    const id = formData.get('id');
+    const method = id ? "PUT" : "POST";
+    const url = id ? `${API}/${id}` : API;
+
+    try {
+      console.log('Submitting form to:', url);
+      console.log('Form data:', Object.fromEntries(formData));
+      
+      const res = await fetch(url, {
+        method: method,
+        credentials: 'include',
+        body: formData
+      });
+
+      const responseData = await res.json();
+      console.log('Response:', responseData);
+
+      if (res.ok) {
+        // Close modal first
+        const modal = bootstrap.Modal.getInstance(document.getElementById('articleModal'));
+        modal.hide();
+        
+        // Show success message
+        showToast("儲存成功");
+        
+        // Refresh the table
+        await fetchArticles();
+      } else {
+        showToast(`儲存失敗: ${responseData.message || res.statusText}`, false);
+      }
+    } catch (error) {
+      console.error('Error in form submission:', error);
+      showToast(`儲存失敗: ${error.message}`, false);
+    }
+  });
+
+  // Function to fetch and display articles
+  async function fetchArticles() {
+    try {
+      const res = await fetch(API, {
+        method: 'GET',
+        credentials: 'include'
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch articles');
+      }
+
+      const articles = await res.json();
+      const tableBody = document.getElementById('articleTableBody');
+      tableBody.innerHTML = '';
+
+      if (articles.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="4" class="text-center">尚無文章資料</td></tr>';
+        return;
+      }
+
+      articles.forEach((article, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${article.title}</td>
+          <td><button class="btn btn-sm btn-warning" onclick="editArticle(${article.id})">編輯</button></td>
+          <td><button class="btn btn-sm btn-danger" onclick="deleteArticle(${article.id})">刪除</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    } catch (error) {
+      console.error('Error fetching articles:', error);
+      showToast('載入文章列表失敗', false);
+    }
+  }
+
+  // Function to delete an article
+  async function deleteArticle(id) {
+    if (confirm('確定要刪除這篇文章嗎？')) {
+      try {
+        const res = await fetch(`${API}/${id}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+
+        const responseData = await res.json();
+
+        if (res.ok) {
+          showToast(responseData.message || '刪除成功');
+          fetchArticles(); // Refresh the list
+        } else {
+          showToast(responseData.message || '刪除失敗', false);
+        }
+      } catch (error) {
+        console.error('Error deleting article:', error);
+        showToast('刪除失敗', false);
+      }
+    }
+  }
+
+  // Add editArticle function
+  async function editArticle(id) {
+    try {
+      const res = await fetch(`${API}/${id}`, {
+        method: 'GET',
+        credentials: 'include'
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch article');
+      }
+
+      const article = await res.json();
+      showForm(article);
+    } catch (error) {
+      console.error('Error fetching article for edit:', error);
+      showToast('載入文章資料失敗', false);
+    }
+  }
+
+  // Fetch articles when the page loads
+  document.addEventListener('DOMContentLoaded', fetchArticles);
+</script>
+</body>
+</html>
