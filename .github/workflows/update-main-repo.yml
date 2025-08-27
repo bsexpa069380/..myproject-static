@@ -1,0 +1,31 @@
+name: Update main repo submodule
+
+on:
+  push:
+    branches:
+      - main   # 當 myproject-static 的 main 分支有更新時觸發
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout static repo
+        uses: actions/checkout@v3
+
+      - name: Checkout main repo
+        uses: actions/checkout@v3
+        with:
+          repository: bsexpa069380/backendTest   # 主專案名稱
+          token: ${{ secrets.MAIN_REPO_TOKEN }}  # GitHub PAT
+          path: main-repo
+
+      - name: Update submodule reference
+        run: |
+          cd main-repo
+          git submodule update --init --recursive
+          cd static
+          git pull origin main
+          cd ..
+          git add static
+          git -c user.name='github-actions[bot]' -c user.email='github-actions[bot]@users.noreply.github.com' commit -m "Auto-update static submodule" || echo "No changes"
+          git push origin main
