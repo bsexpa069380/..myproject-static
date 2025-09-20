@@ -1,0 +1,308 @@
+@font-face {
+  font-family: 'Noto Serif TC Medium'; /* Choose a descriptive name */
+  src: url('./font/NotoSerifTC-Medium.ttf') format('truetype');
+  font-weight: normal; /* Adjust if the font has a specific weight */
+  font-style: normal;
+}
+body , body h1, h2, h3, h4{
+	font-family: 'Noto Serif TC Medium', serif; 
+}
+.ad-title {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: relative;
+	margin: 40px 40px 0px 40px;
+}
+.ad-title-right {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+	margin: 40px 40px 0px 40px;
+}
+.line-deco {
+	position: absolute;
+	left: 0;
+	top: 70%;
+	width: 100%;
+	height: 1px;
+	background-color: #b8934d; /* 金色線 */
+}
+.line-deco-right {
+	position: absolute;
+	right: 0;
+	top: 70%;
+	width: 100%;
+	height: 1px;
+	background-color: #b8934d; /* 金色線 */
+}
+.line-deco::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 40px;
+	height: 1px;
+	background-color: #b8934d;
+	transform: rotate(-35deg);
+	transform-origin: left bottom;
+}
+.line-deco-right::before {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 40px;
+	height: 1px;
+	background-color: #b8934d;
+	transform: rotate(35deg);
+	transform-origin: right bottom;
+}
+.adtitle-text {
+	position: relative;
+	background: white;
+	color: #b8934d;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 0 5px;
+	z-index: 1;
+}
+.ul-left {
+	margin-left: 55px;
+}
+.ul-right {
+	margin-left: 55px;
+}
+ul li {
+	font-family: 'Noto Serif TC Medium', serif; 
+	font-size: 18px;
+	color: #2d4b3c;
+}
+.adv1 li {
+	font-family: 'Noto Serif TC Medium', serif; 
+	font-size: 15px;
+	color: #2d4b3c;
+	font-weight: 100;
+}
+.adv1 ul {
+	padding-left: 18px;
+}
+.adv1 h4 {
+	color: #2d4b3c;
+	margin-bottom: 15px;
+}
+
+@media (max-width: 991px) {
+.ul-left {
+	margin-left: 10px;
+}
+.ul-right {
+	margin-left: 10px;
+	margin-right: 0px
+}
+ul li {
+	font-size: 10px;
+	color: #2d4b3c;
+}
+.ad-title {
+	margin: 10px 0px;
+}
+.ad-title-right {
+	margin: 10px 0px;
+}
+.adv1 li {
+	font-size: 13px;
+}
+}
+.section-title-wrapper-green {
+	width: 100%;
+	background-color: #2d4b3c;
+	margin-bottom: 20px;
+}
+.section-title-wrapper-gold {
+	width: 100%;
+	background-color: #b8934d;
+	margin-bottom: 20px;
+}
+.section-title {
+	max-width: 960px;
+	margin: 0 auto;
+	color: white;
+	padding: 10px 40px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: 500;
+}
+
+
+@media (max-width: 768px) {
+  #header {
+    height: 80px; /* 在小螢幕上縮小高度 */
+    line-height: 80px;
+  }
+
+  .enter-text {
+    display: none; /* 隱藏文字 */
+  }
+
+}
+
+#advantages-table{
+  width: 100%;
+  font-family: 'Noto Serif TC Medium', serif; 
+}
+
+#advantages-table th{
+  color: white; 
+  background-color: #0f2642; 
+  font-size: 24px;
+}
+
+#advantages-table tr{
+  background-color: #d3d6da;
+  color: #0f2642;
+  border-bottom: 1px solid #0f2642;
+}
+
+#advantages-table tr td, table tr th {
+  padding: 2% 8%;
+  font-size: 18px;
+}
+
+#advantages1-table{
+  width: 100%;
+  font-family: 'Noto Serif TC Medium', serif; 
+}
+
+#advantages1-table th{
+  color: white; 
+  background-color: #9e4e24; 
+  font-size: 24px;
+}
+
+#advantages1-table tr{
+  background-color: #ffe7da;
+  color: #0f2642;
+  font-size: 1.1 em;
+}
+
+#advantages1-table table tr th {
+  padding: 2% 4%;
+}
+
+#advantages1-table tr td {
+  padding: 2% 4%;
+  border: 1px solid #49484a;
+  font-size: 18px;
+}
+
+#renewal-oldage .primary-area {
+  background-color: #be9c59; /* 背景顏色 */
+  padding: 25px; /* 內邊距，讓內容與邊框保持距離 */
+  color: #fff; /* 文字顏色設為白色，確保可讀性 */
+  box-sizing: border-box; /* 確保 padding 不影響寬度 */
+  line-height: 2; /* 為每個區塊內的文字單獨設置行高 */
+  min-height: 50vh;
+  font-size: 18px;
+}
+
+
+#renewal-oldage  .blue-area {
+  background-color: #0f2642; /* 背景顏色 */
+  padding: 25px; /* 內邊距，讓內容與邊框保持距離 */
+  color: #fff; /* 文字顏色設為白色，確保可讀性 */
+  box-sizing: border-box; /* 確保 padding 不影響寬度 */
+  line-height: 2; /* 為每個區塊內的文字單獨設置行高 */
+  min-height: 50vh;
+  font-size: 18px;
+}
+
+#renewal-oldage .renewal-oldage-title {
+  font-size: 32px;
+  color: #0f2642;
+}
+
+#renewal-oldage .renewal-oldage-title .inline{
+   color: #be9c59;
+}
+
+#renewal-oldage .renewal-oldage-subtitle {
+  font-size: 28px;
+  color: #0f2642;
+}
+
+
+#renewal-oldage .title {
+  color: #ffffff;
+  font-size: 24px;
+  display: inline-block;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  text-align: center;  
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+#advantages1 .subtitle {
+    font-size: 28px;
+    font-weight: bold;
+    color:#9e4e24;
+}
+
+#advantages1 .thirdtitle {
+    font-size: 28px;
+    color:#9e4e24;
+    margin: 10px 0px 20px 0px;
+}
+
+.renew-title-box {
+    display: inline-block;
+    position: relative;
+    padding: 0.2em 1em;
+    background-color: #C49A6C;
+    margin: 1em auto;
+}
+
+.renew-title {
+    margin: 0;
+    font-size: 30px;
+    color: #ffffff;
+    font-family: 'Noto Serif TC Medium', serif; 
+    margin-bottom: 10px;
+}
+
+.renew-bg {
+  background-image: url('../assets/renew/renew_bg.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  width: 100%; /* 寬度設為 100% */
+  height: calc(75vw * 826 / 1920); 
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-text {
+  margin: 0% 8%;
+  color: rgb(190,156,89);
+  font-size: 28px;
+  letter-spacing: 0.2em;
+  z-index: 2;
+  line-height: 1.5;
+  writing-mode: vertical-rl;
+}
+
+.enter-text .urban-renewal{
+  color:#be9c59
+}
+
+.enter-text .old-house-reconstruction{
+  color:#9e8251;
+  margin:-50px 40px 0px 0px;
+}
+
+#dan-oldhouse, #cityrenew{
+  background-color: #f6f8f7e6;
+}
