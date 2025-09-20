@@ -37,8 +37,9 @@
 }
 
 .introduction{
-   line-height: 2.25rem;
-   color: #49484a;
+   line-height: 2.25rem !important;
+   color: #49484a !important;
+   font-size: 1.125rem !important;
 }
 .page-title h3{
   color:rgb(15,38,66);

@@ -63,7 +63,7 @@ body , body h1, h2, h3, h4{
 	position: relative;
 	background: white;
 	color: #b8934d;
-	font-size: 25px;
+	font-size: 1.5rem;
 	font-weight: bold;
 	padding: 0 5px;
 	z-index: 1;
@@ -76,12 +76,12 @@ body , body h1, h2, h3, h4{
 }
 ul li {
 	font-family: 'Noto Serif TC Medium', serif; 
-	font-size: 18px;
+	font-size: 1.125rem;
 	color: #2d4b3c;
 }
 .adv1 li {
 	font-family: 'Noto Serif TC Medium', serif; 
-	font-size: 15px;
+	font-size: 0.9375rem;
 	color: #2d4b3c;
 	font-weight: 100;
 }
@@ -102,7 +102,7 @@ ul li {
 	margin-right: 0px
 }
 ul li {
-	font-size: 10px;
+	font-size: 0.625rem;
 	color: #2d4b3c;
 }
 .ad-title {
@@ -112,7 +112,7 @@ ul li {
 	margin: 10px 0px;
 }
 .adv1 li {
-	font-size: 13px;
+	font-size: 0.8125rem;
 }
 }
 .section-title-wrapper-green {
@@ -130,7 +130,7 @@ ul li {
 	margin: 0 auto;
 	color: white;
 	padding: 10px 40px;
-	font-size: 20px;
+	font-size: 1.3375rem;
 	text-align: center;
 	font-weight: 500;
 }
@@ -156,7 +156,7 @@ ul li {
 #advantages-table th{
   color: white; 
   background-color: #0f2642; 
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 #advantages-table tr{
@@ -167,7 +167,7 @@ ul li {
 
 #advantages-table tr td, table tr th {
   padding: 2% 8%;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 #advantages1-table{
@@ -178,7 +178,7 @@ ul li {
 #advantages1-table th{
   color: white; 
   background-color: #9e4e24; 
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 #advantages1-table tr{
@@ -228,14 +228,14 @@ ul li {
 }
 
 #renewal-oldage .renewal-oldage-subtitle {
-  font-size: 28px;
+  font-size: 1.75rem;
   color: #0f2642;
 }
 
 
 #renewal-oldage .title {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 1.5rem;
   display: inline-block;
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
@@ -246,13 +246,13 @@ ul li {
 
 
 #advantages1 .subtitle {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
     color:#9e4e24;
 }
 
 #advantages1 .thirdtitle {
-    font-size: 28px;
+    font-size: 1.75rem;
     color:#9e4e24;
     margin: 10px 0px 20px 0px;
 }
@@ -267,7 +267,7 @@ ul li {
 
 .renew-title {
     margin: 0;
-    font-size: 30px;
+    font-size: 1.875rem;
     color: #ffffff;
     font-family: 'Noto Serif TC Medium', serif; 
     margin-bottom: 10px;
@@ -287,7 +287,7 @@ ul li {
 .enter-text {
   margin: 0% 8%;
   color: rgb(190,156,89);
-  font-size: 28px;
+  font-size: 1.75rem;
   letter-spacing: 0.2em;
   z-index: 2;
   line-height: 1.5;
