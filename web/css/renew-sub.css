@@ -1,18 +1,9 @@
-@font-face {
-    font-family: 'Noto Serif TC Medium'; /* Choose a descriptive name */
-    src: url('/static/web/font/NotoSerifTC-Medium.ttf') format('truetype');
-    font-weight: normal; /* Adjust if the font has a specific weight */
-    font-style: normal;
-  }
-  body , body h1, h2, h3, h4{
-    font-family: 'Noto Serif TC Medium', serif; 
-  }
-  .renew-title-box {
-    display: inline-block;
-    position: relative;
-    padding: 0.2em 1em;
-    background-color: #C49A6C;
-    margin: 1em auto;
+.renew-title-box {
+  display: inline-block;
+  position: relative;
+  padding: 0.2em 1em;
+  background-color: #C49A6C;
+  margin: 1em auto;
 }
 
 .renew-title {

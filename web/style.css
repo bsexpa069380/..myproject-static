@@ -1,4 +1,19 @@
 @charset "UTF-8";
+/* 中文字體 */
+@font-face {
+  font-family: 'Noto Serif TC Medium';
+  src: url('/static/web/font/NotoSerifTC-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 英文字體 Calibri Light（可選） */
+@font-face {
+  font-family: 'Calibri Light';
+  src: local('Calibri Light'), local('Calibri-Light');
+  font-weight: 300;
+  font-style: normal;
+}
 
 :root,
 [data-bs-theme=light] {
@@ -67,7 +82,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "PMingLiU", "MingLiU", "宋体", serif;
+  --bs-font-sans-serif: 'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
@@ -187,7 +202,7 @@
     scroll-behavior: smooth;
   }
 }
-
+/* 全域字體設定 */
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -199,6 +214,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
 
 hr {
@@ -13287,9 +13303,9 @@ textarea.form-control-lg {
   --cnvs-black:	#000;
   --cnvs-headings-font-weight:	600;
   /* Font Families */
-  --cnvs-body-font:	"PMingLiU", "MingLiU", "宋体", serif;
-  --cnvs-primary-font:"PMingLiU", "MingLiU", "宋体", serif;
-  --cnvs-secondary-font:	"Playfair Display", serif;
+  --cnvs-body-font:	'Noto Serif TC Medium', serif;
+  --cnvs-primary-font:	'Noto Serif TC Medium', serif;
+  --cnvs-secondary-font:	'Noto Serif TC Medium', serif;
   --cnvs-line-height-base:	1.5;
   --cnvs-line-height-content:	1.65;
   /* Margins */
@@ -28111,7 +28127,7 @@ h3.titular-title, .titular-title.h3 {
   font-size: 0.9375rem;
 }
 
-/* Heading Block - with Subtitle
+/* Heading Block - with Subtitle 確認會不會用到
 -----------------------------------------------------------------*/
 .heading-block {
   --cnvs-heading-block-font-size-h1: 2.5rem;
@@ -33874,15 +33890,156 @@ img.object-fit-cover {
 
 @media (max-width: 991px){
 	
-.v-line-box{
-	display: none;
-    
-}
+  .v-line-box{
+    display: none;
+      
+  }
 	
-     }
+}
 
 .footer-widgets-wrap p {
 	  font-family: 'Noto Sans TC', sans-serif;
 	  font-size: 15px;
 	
+}
+
+.breadcrumb {
+  font-size: 20px;
+  font-weight: Bold;
+}
+
+/*contact*/
+.contact-info {
+  margin-bottom: 35px;
+  font-size: 20px;
+  color: #494949;
+}
+
+.custom-input-control {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  border-bottom: solid;
+  border-width: thin;
+}
+
+/*common 共用*/
+.justify-content {
+  text-align: justify; /* 左右對齊 */
+  text-justify: inter-ideograph; /* 中文優化對齊效果 */
+}
+
+/*about page*/
+
+.about-background {
+  background-image: url('/static/web/assets/about/about-jun-sheng1.jpg'); 
+}
+
+.aboutwrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aboutwrap-content {
+  text-align: center;
+  line-height: 1.4;
+  font-size: 20px;             /* 內容字級 */
+  white-space: nowrap;
+  color:#0f2642;
+}
+
+.aboutwrap-bracket {
+  font-size: 52px;             /* 方括號大小，視需要調整 */
+  line-height: 1;
+}
+
+.servicesTitle{
+  border-left: 120px solid #0f2642;
+  padding-left: 30px; 
+  color: #0f2642;
+  letter-spacing: 0.1em;
+}
+
+.servicesSubText {
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+}
+
+.serviceBanner{
+  letter-spacing: 0.1em;
+  background-color: #be9c59;
+  padding: 5px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.visionBanner{
+  background-color: #dfdee1; 
+  color: #0f2642; 
+  font-size: 24px;
+  padding: 5px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+.vision-section {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  border-bottom: 2px solid #9da9b5; /* 下方細線 */
+}
+
+/* 左邊白底文字區 */
+.vision-left {
+  width: 15%;
+  background-color: #ffffff;
+  color: #0f2642;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  line-height: 1.4;
+}
+
+.vision-right{
+  width: 85%;
+}
+
+
+/* 右邊文字區 BRAND NEW SENSES*/
+.vision-right h5 {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.vision-right p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.vision-right .desc {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+
+/*color*/
+.text-cyellow {
+  color:#be9c59;
+}
+
+.text-cblue{
+   color: #0f2642;
+}
+
+/* 小螢幕可自動縮小 */
+@media (max-width:420px){
+  .aboutwrap-bracket { font-size: 40px; }
+  .aboutwrap-content { font-size: 16px; }
 }
