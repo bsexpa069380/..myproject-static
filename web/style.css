@@ -133,6 +133,12 @@
   --bs-form-valid-border-color: #198754;
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
+
+  --bs-yellow-color: #bd985f;
+  --bs-brown-color: #9e4e24;
+  --bs-black-color: #49484a;
+  --bs-blue-color: #0f2642;
+
 }
 
 [data-bs-theme=dark] {
@@ -13303,9 +13309,9 @@ textarea.form-control-lg {
   --cnvs-black:	#000;
   --cnvs-headings-font-weight:	600;
   /* Font Families */
-  --cnvs-body-font:	'Noto Serif TC Medium', serif;
-  --cnvs-primary-font:	'Noto Serif TC Medium', serif;
-  --cnvs-secondary-font:	'Noto Serif TC Medium', serif;
+  --cnvs-body-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
+  --cnvs-primary-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
+  --cnvs-secondary-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
   --cnvs-line-height-base:	1.5;
   --cnvs-line-height-content:	1.65;
   /* Margins */
@@ -33674,10 +33680,6 @@ body.dark {
 		display: none;
 	}
 
-.sct1, .sct3{
-	padding: 90px 0px;
-}
-
 .sct2{
 	background: #2d4b3c;
 	padding: 0px 0px;
@@ -33930,116 +33932,35 @@ img.object-fit-cover {
   text-justify: inter-ideograph; /* 中文優化對齊效果 */
 }
 
-/*about page*/
-
-.about-background {
-  background-image: url('/static/web/assets/about/about-jun-sheng1.jpg'); 
-}
-
-.aboutwrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.aboutwrap-content {
-  text-align: center;
-  line-height: 1.4;
-  font-size: 20px;             /* 內容字級 */
-  white-space: nowrap;
-  color:#0f2642;
-}
-
-.aboutwrap-bracket {
-  font-size: 52px;             /* 方括號大小，視需要調整 */
-  line-height: 1;
-}
-
-.servicesTitle{
-  border-left: 120px solid #0f2642;
-  padding-left: 30px; 
-  color: #0f2642;
-  letter-spacing: 0.1em;
-}
-
-.servicesSubText {
-  font-size: 20px;
-  line-height: 1.6;
-  letter-spacing: 0.1em;
-}
-
-.serviceBanner{
-  letter-spacing: 0.1em;
-  background-color: #be9c59;
-  padding: 5px;
-  color: #ffffff;
-  text-align: center;
-  font-size: 24px;
-}
-
-.visionBanner{
-  background-color: #dfdee1; 
-  color: #0f2642; 
-  font-size: 24px;
-  padding: 5px;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-}
-
-.vision-section {
-  display: flex;
-  color: #ffffff;
-  align-items: center;
-  border-bottom: 2px solid #9da9b5; /* 下方細線 */
-}
-
-/* 左邊白底文字區 */
-.vision-left {
-  width: 15%;
-  background-color: #ffffff;
-  color: #0f2642;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-  padding: 20px;
-  line-height: 1.4;
-}
-
-.vision-right{
-  width: 85%;
-}
-
-
-/* 右邊文字區 BRAND NEW SENSES*/
-.vision-right h5 {
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.vision-right p {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.vision-right .desc {
-  font-size: 15px;
-  letter-spacing: 2px;
-}
-
-
 /*color*/
 .text-cyellow {
-  color:#be9c59;
+  color: var(--bs-yellow-color);
+}
+
+.text-cblack {
+  color:var(--bs-black-color)
+}
+
+.text-cbrown {
+  color: var(--bs-brown-color);
 }
 
 .text-cblue{
-   color: #0f2642;
+   color: var(--bs-blue-color);
 }
 
 /* 小螢幕可自動縮小 */
 @media (max-width:420px){
   .aboutwrap-bracket { font-size: 40px; }
   .aboutwrap-content { font-size: 16px; }
+}
+
+/*index*/
+.index-bg {
+    background-image: url(/static/web/assets/index-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vw * 3006 / 5334);
+    align-items: center;
 }
