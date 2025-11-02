@@ -1,49 +1,9 @@
 /*about page*/
-@font-face {
-  font-family: "GenKiMin2TC-EL";
-  src: url("/static/web/font/GenKiMin2TC-EL.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-L";
-  src: url("/static/web/font/GenKiMin2TC-L.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-R";
-  src: url("/static/web/font/GenKiMin2TC-R.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-M";
-  src: url("/static/web/font/GenKiMin2TC-M.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-SB";
-  src: url("/static/web/font/GenKiMin2TC-SB.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-B";
-  src: url("/static/web/font/GenKiMin2TC-B.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-H";
-  src: url("/static/web/font/GenKiMin2TC-H.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Constantia";
-  src: url("/static/web/font/Constantia.ttf") format("truetype");
-}
 
 body{
   letter-spacing: 2pt;
   line-height: 1.75rem;
-
-  font-family: "GenKiMin2TC-R", "Constantia", serif;
+  font-family: "GenKiMin2TC-M", "Constantia", serif;
 }
 
 .bannerTitle{
@@ -61,23 +21,10 @@ body{
     margin-top: 100px;
 }
 
-.aboutwrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.aboutwrap-content {
-  text-align: center;
-  line-height: 1.4;
-  font-size: 20px;             /* 內容字級 */
-  white-space: nowrap;
-  color:#0f2642;
-}
-
-.aboutwrap-bracket {
-  font-size: 52px;             /* 方括號大小，視需要調整 */
-  line-height: 1;
+.sustainability-title {
+   font-family: 'GenKiMin2TC-SB';
+   color:#ffffff;
+   font-size: 1.5rem;
 }
 
 .services{
@@ -106,7 +53,7 @@ body{
   color: #0f2642; 
   font-size: 24px;
   padding: 10px;
-  font-weight: bold;
+  font-family: "GenKiMin2TC-B", "Constantia", serif;
 }
 
 .vision-section {
@@ -114,6 +61,7 @@ body{
   color: var(--bs-white);
   align-items: center;
   border-bottom: 2px solid #9da9b5; /* 下方細線 */
+  font-family: "GenKiMin2TC-R", "Constantia", serif;
 }
 
 /* vision 區塊文字區 */
@@ -183,16 +131,13 @@ display: flex;
   border-top: 2px solid #c39c61;
 }
 
-.bossTalk .content {
-  font-family: 'GenKiMin2TC-M';
-}
-
 .bossTalkContent{
-  font-size: 1.25rem;
+  font-size: 1.25rem;  
 }
 
 .about-s6s-title{
   line-height: 2.25rem;
   color: #ffffff;
+  font-family: "GenKiMin2TC-B", "Constantia", serif;
 }
 

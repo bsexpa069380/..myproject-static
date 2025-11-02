@@ -24,7 +24,88 @@
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="/static/web/css/custom.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body{
+			letter-spacing: 2pt;
+			line-height: 1.75rem;
+			font-family: "Noto Serif TC Medium", "Constantia", serif;
+		}
+		
+		/*contact*/
+		.contact-info {
+			margin-bottom: 35px;
+			font-size: 1.2rem;
+			color: #494949;
+		}
 
+		.contact-form {
+			font-size: 20px;
+			color: #494949;
+		}
+
+		.custom-input-control {
+			display: block;
+			width: 100%;
+			border: none;
+			background-color: transparent;
+			border-bottom: solid;
+			border-width: thin;
+		}
+
+		.send-button {
+			font-size: 20px;          /* 原本文字大小 */
+			transition: transform 0.3s ease; /* 平滑動畫效果 */
+			background-color: #0f2642;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+
+		}
+		.send-button span {
+			display: inline-block;
+			transition: transform 0.3s ease;
+		}
+
+		.send-button:hover span {
+			transform: scale(1.25);
+		}
+
+		/*客製化選單 selectbox*/
+		.custom-select-box {
+			width: 100%;
+			padding: 5px;
+			font-size: 20px;
+			color: white;
+			background-color: #0f2642;
+			border: none;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			cursor: pointer;
+			transition: background-color 0.3s ease, background-image 0.3s ease;
+			background-repeat: no-repeat;
+			background-position: right 12px center;
+		}
+
+		/* hover 時變色*/
+		.custom-select-box:hover {
+		background-color: #1967d2;
+		}
+
+
+		/* ✅ 其他選項背景白色、字體深藍 */
+		.custom-select-box option:not(:disabled) {
+			background-color: #fff;
+			color: #0f2642;
+		}
+
+		optgroup {
+			background-color: #c39c61;
+			color: white;
+		}
+
+	</style>
 	<!-- Document Title
 	============================================= -->
 	<title>邑城仰睦-聯絡我們</title>
@@ -33,11 +114,11 @@
 
 </head>
 
-<body class="stretched overlay-menu">
+<body class="stretched overlay-menu" >
 
 	<!-- Document Wrapper
 	============================================= -->
-	<div id="wrapper">
+	<div id="wrapper" style="background-image: url('/static/web/assets/contact/contact_bg.png');">
 		
 		
 		<header id="header" class="full-header transparent-header transparent-header-responsive" >
@@ -103,89 +184,122 @@
 			</div>
 			<div class="header-wrap-clone"></div>
 		</header>
-
-		
-		
-	
-		
-	
 		<!--意見回饋
 		============================================= -->
-		<section id="">
+		<section class="feedback" >
 			<div class="content-wrap py-lg-0">
 				<div class="container" >
 					<!-- Section light
 					============================================= -->
-						<div class="row gutter-50 mb-9">
-							<div class="col-lg-12 align-sel f-center" >
-								 <div class="custom-title-box">
- 								  <h2 class="custom-title">意見回饋</h2>
-								 </div>
+						<div class="row mb-9">
+							<div class="col-lg-12 align-sel f-center mt-6 mb-6" >
+								<span class="breadcrumb">
+									聯絡我們 > 線上留言
+								</span>
 							</div>
-							<div class="row mt-6">
-								 <div class="col-lg-12">
-									 <div class="card bg-primary" style="color: aliceblue;">
-								
-								<div class="card-body px-md-6 mt-6">
-						
 
-									<div class="form-widget">
-
-										<div class="form-result"></div>
-
-										<form class="mb-0" id="template-contactform" name="template-contactform">
-
-											<div class="form-process">
-												<div class="css3-spinner">
-													<div class="css3-spinner-scaler"></div>
-												</div>
-											</div>
-
-											<div class="row">
-												<div class="col-lg-6 col-12 form-group">
-													<label for="template-contactform-name">姓名 <small>*</small></label>
-													<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="form-control required">
-												</div>
-
-												<div class="col-lg-6 col-12 form-group">
-													<label for="template-contactform-phone">手機 <small>*</small></label>
-													<input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="form-control required">
-												</div>
-												
-												<div class="col-lg-12 col-12 form-group">
-													<label for="template-contactform-email">Email <small>*</small></label>
-													<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email form-control">
-												</div>
-
-												<div class="w-100"></div>
-
-												<div class="col-12 form-group">
-													<label for="template-contactform-message">請在此輸入您寶貴的意見</label>
-													<textarea class="form-control required" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
-												</div>
-
-												<div class="col-12 form-group d-none">
-													<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="form-control">
-												</div>
-
-												<div class="col-12 my-4">
-														<button class="btn text-white py-2 w-50 mt-5" type="submit" id="" name="template-contactform-submit" value="submit" style="background-color:#c39c61;">送出表單</button>
-												</div>
-											</div>
-
-											<input type="hidden" name="prefix" value="template-contactform-">
-
-										</form>
+							<div class="row contact-form">
+								<div class="col-lg-6">
+									<div class="contact-info">
+										<i class="fa-solid fa-phone text-cyellow"></i>
+										<span class="ps-3">聯絡電話  /  02-2951-2789</span> 
 									</div>
-
+									<div class="contact-info">
+										<i class="fa-solid fa-location-dot text-cyellow"></i>
+										<span class="ps-3">聯絡地址  /  新北市板橋區民生路1段33號5樓</span>
+									</div>
+									<div class="contact-info">
+										<i class="fa-solid fa-house text-cyellow"></i>
+										<span class="ps-3">官方社群  /  
+											<i class="fa-brands fa-facebook "></i>
+											<i class="fa-brands fa-line ps-3"></i>
+											<i class="fa-brands fa-instagram ps-3"></i>
+										</span>
+									</div>
+									<div class="contact-info">
+										<i class="fa-solid fa-user" style="color: #C49A6C;"></i>
+										<span class="ps-3">服務時間  /  周一至周五(AM 9:00-PM 18:00)</span>
+									</div>
+									<div class="contact-info">
+										<i class="fa-solid fa-envelope" style="color: #C49A6C;"></i>
+										<span class="ps-3">E-mail  /  jh66532470@gmail.com</span>
+									</div>
 								</div>
+								
+								<div class="col-lg-6 row">
+									<form class="mb-0" id="template-contactform" name="template-contactform">
+										<div class="col-12"> 
+											<div class="row">
+												<div class="form-group col">
+													<label for="template-contactform-name" class="form-label">*姓名</label> 
+													<input type="text" class="custom-input-control" id="template-contactform-name" name="template-contactform-name" value="" required=""> 
+												</div>
+												<div class="form-group col">
+													<label for="template-contactform-phone" class="form-label">*聯絡電話</label> 
+													<input type="text" class="custom-input-control" id="template-contactform-phone" name="template-contactform-phone" placeholder="" value="" required=""> 
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="row">
+												<div class="form-group col">
+													<label for="template-contactform-email" class="form-label">*電子信箱 E-mail</label> 
+													<input type="text" class="custom-input-control" id="template-contactform-email" name="template-contactform-email" placeholder="" value="" required=""> 
+												</div>		
+											</div>							
+										</div>
+										<div class="col-12"> 
+											 <div class="row">
+												<div class="form-group col">
+													<label for="template-contactform-type" class="form-label">訊息類別</label>
+													<select id="template-contactform-type" name="template-contactform-type" class="custom-input-control  custom-select-box" required="">
+														<option value="" selected>請選擇類別</option>
+														<option value="土地開發合作">土地開發合作</option>
+														<option value="購屋需求">購屋需求</option>
+														<option value="其他">其他</option>
+													</select>
+													
+												</div>
+												<div class="form-group col">
+													<label for="template-contactform-project" class="form-label">建案名稱</label>
+													<select id="template-contactform-project" name="template-contactform-project" class="custom-select-box" required="">
+														<option value="" selected>請選擇類別</option>
+														<optgroup label="　土地開發合作">
+															<option value="中和和御">中和和御</option>
+															<option value="河堤六小段">河堤六小段</option>
+															<option value="三重興華段">三重興華段</option>
+														</optgroup>
+
+														<optgroup label="　危老重建">
+															<option value="板橋中山段">板橋中山段</option>
+															<option value="邑城仰睦">邑城仰睦</option>
+															<option value="文化首勝">文化首勝</option>
+														</optgroup>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="g-recaptcha" data-sitekey="6Le3S_srAAAAAN_dKntfqBhVB7jexLUKwu-yPyR7"></div>
+										</div>
+										<div class="col-12"> 
+											<label for="template-contactform-message" class="form-label">*留下您寶貴的意見</label> 
+											<textarea class="custom-input-control" id="template-contactform-message" name="template-contactform-message" placeholder="" value="" required=""></textarea> 
+										</div>
+										<div class="col-12 my-4">
+											<button class="text-white py-2 w-50 mt-5 send-button" type="submit" name="template-contactform-submit" value="submit">
+												<span>送出</span>
+											</button>
+										</div>
+
+
+										
+									</form>
+								</div>
+							
 							</div>
-								 </div>
-								 
-								 
-						
-												
-					       </div>
+
+
 						</div>
 						
 
@@ -193,15 +307,6 @@
 
 			</div>
 		</section><!-- #繳款紀錄 end -->
-		
-		
-		
-
-		
-
-		
-		
-		
 		
 		
 		
@@ -355,6 +460,8 @@
 	<script src="/static/web/js/plugins.min.js"></script>
 	<script src="/static/web/js/functions.bundle.js"></script>
 	<script src="/static/web/js/menu.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 	<script>
 	document.addEventListener('DOMContentLoaded', function() {
 	  const form = document.getElementById('template-contactform');
@@ -365,10 +472,12 @@
 	        name: document.getElementById('template-contactform-name').value,
 	        phone: document.getElementById('template-contactform-phone').value,
 	        email: document.getElementById('template-contactform-email').value,
+			type: document.getElementById('template-contactform-type').value,
+			project: document.getElementById('template-contactform-project').value,
 	        message: document.getElementById('template-contactform-message').value
 	      };
 	      // Validate required fields
-	      if (!formData.name || !formData.phone || !formData.email || !formData.message) {
+	      if (!formData.name || !formData.phone || !formData.email || !formData.type || !formData.project || !formData.message) {
 	        alert('請填寫所有必填欄位');
 	        return;
 	      }

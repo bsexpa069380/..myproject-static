@@ -7,6 +7,47 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: "GenKiMin2TC-EL";
+  src: url("/static/web/font/GenKiMin2TC-EL.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-L";
+  src: url("/static/web/font/GenKiMin2TC-L.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-R";
+  src: url("/static/web/font/GenKiMin2TC-R.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-M";
+  src: url("/static/web/font/GenKiMin2TC-M.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-SB";
+  src: url("/static/web/font/GenKiMin2TC-SB.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-B";
+  src: url("/static/web/font/GenKiMin2TC-B.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GenKiMin2TC-H";
+  src: url("/static/web/font/GenKiMin2TC-H.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Constantia";
+  src: url("/static/web/font/Constantia.ttf") format("truetype");
+}
+
 /* 英文字體 Calibri Light（可選） */
 @font-face {
   font-family: 'Calibri Light';
@@ -33910,21 +33951,6 @@ img.object-fit-cover {
   font-weight: Bold;
 }
 
-/*contact*/
-.contact-info {
-  margin-bottom: 35px;
-  font-size: 20px;
-  color: #494949;
-}
-
-.custom-input-control {
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: transparent;
-  border-bottom: solid;
-  border-width: thin;
-}
 
 /*common 共用*/
 .justify-content {
