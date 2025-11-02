@@ -135,6 +135,10 @@ display: flex;
   font-size: 1.25rem;  
 }
 
+.bossTalkContent .title{
+  font-family: "GenKiMin2TC-B";
+}
+
 .about-s6s-title{
   line-height: 2.25rem;
   color: #ffffff;
