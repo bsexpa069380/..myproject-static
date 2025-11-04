@@ -66,7 +66,7 @@ body{
 
 /* vision 區塊文字區 */
 .vision-left {
-display: flex;
+  display: flex;
   /* 水平置中 */
   justify-content: center;    
   /* 垂直置中 */
@@ -76,6 +76,7 @@ display: flex;
   font-size: 1.5rem;
   padding: 20px;
   width:15%;
+  letter-spacing: 3pt;
 }
 
 .vision-area-color1{
@@ -90,6 +91,7 @@ display: flex;
 
 .vision-right{
   width: 85%;
+  letter-spacing: 3pt;
 }
 
 
@@ -145,3 +147,15 @@ display: flex;
   font-family: "GenKiMin2TC-B", "Constantia", serif;
 }
 
+.about-junsfeng-img {
+  background-image: url('/static/web/assets/about/about-jun-bg.jpg');
+  background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
