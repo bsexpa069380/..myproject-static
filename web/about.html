@@ -6,17 +6,22 @@
 <meta name="author" content="Action Sharon James">
 <meta name="description" content="峻勝建設開發官網">
 
-<!-- Font Imports -->
-<!-- Core Style -->
-<link rel="stylesheet" href="/static/web/style.css">
-<!-- custom page css-->
-<link rel="stylesheet" href="/static/web/css/about.css">
+<link rel="preload" href="/static/web/style.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="/static/web/css/about.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="/static/web/css/swiper.css" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="/static/web/css/custom.css" as="style" onload="this.rel='stylesheet'">
 
-<!-- Plugins/Components CSS -->
-<link rel="stylesheet" href="/static/web/css/swiper.css">
+<!-- noscript fallback -->
+<noscript>
+  <link rel="stylesheet" href="/static/web/style.css">
+  <link rel="stylesheet" href="/static/web/css/about.css">
+  <link rel="stylesheet" href="/static/web/css/custom.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    integrity="sha384-NnDK5PsYClXfkxKF2R0H0kc8bWnUrjOWP4W0ViVYbS2IuqUoQr7mL0h7t90J9S3G"
+    crossorigin="anonymous">
+</noscript>
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="/static/web/css/custom.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Document Title
@@ -225,7 +230,7 @@
               <img src="/static/web/assets/about/ceo.jpg" alt="story-image" loading="lazy"> 
                 <div class="row mt-3">
                     <div class="col-6 text-white"> — 峻勝建設開發 總經理</div>
-                    <div class="col-6"><img src="/static/web/assets/about/ceo-sign.png" alt="story-image"> </div>
+                    <div class="col-6"><img src="/static/web/assets/about/ceo-sign.png" alt="story-image" loading="lazy"> </div>
                 </div>
             </div>
             <div class="col-lg-6 align-sel f-center order-1 order-lg-2 p-4 mt-3" >
@@ -697,7 +702,12 @@
 <script src="/static/web/js/plugins.min.js"></script> 
 <script src="/static/web/js/functions.bundle.js"></script> 
 <script src="/static/web/js/menu.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+  defer>
+</script>
 <script>
 // Function to format date
 function formatDate(dateString) {
