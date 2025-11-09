@@ -1466,6 +1466,7 @@ progress {
    .col-lg-f-7 {
     flex: 0 0 auto;
     width: 14.2%;
+    margin-left: -2%;
   }
 	
   .col-lg-auto {
@@ -9102,6 +9103,11 @@ textarea.form-control-lg {
 
 .link-underline-opacity-100-hover:hover {
   --bs-link-underline-opacity: 1;
+}
+
+.bg-blue {
+  --bs-bg-opacity: 1;
+  background-color: #0f2642 !important;
 }
 
 .bg-primary {
