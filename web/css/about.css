@@ -1,161 +1,28 @@
 /*about page*/
-
-body{
-  letter-spacing: 2pt;
-  line-height: 1.75rem;
-  font-family: "GenKiMin2TC-M", "Constantia", serif;
-}
-
-.bannerTitle{
-  font-family: 'GenKiMin2TC-SB';
-  font-size: 1.75rem;
-  color: #ffffff;
-  line-height: 2.75rem;
-}
-
-.about-background {
-  background-image: url('/static/web/assets/about/about-jun-sheng1.jpg'); 
-}
-
-.about-body{
-    margin-top: 100px;
-}
-
-.sustainability-title {
-   font-family: 'GenKiMin2TC-SB';
-   color:#ffffff;
-   font-size: 1.5rem;
-}
-
-.services{
-    font-family: 'GenKiMin2TC-SB';
-}
-
-.services-banner {
-  background-image: url('/static/web/assets/about/services-bg.jpg'); 
-}
-
-.services-dashed {
-  height: 2px; /* 線條粗細 */
-  width: 100%;
-  background-image: repeating-linear-gradient(
-    to right,
-    #bd985f 0,
-    #bd985f 10px,   /* 虛線長度 */
-    transparent 10px,
-    transparent 20px /* 間距長度 */
-  );
-  margin-top: 4rem;
-}
-
-.visionBanner{
-  background-color: #dfdee1; 
-  color: #0f2642; 
-  font-size: 24px;
-  padding: 10px;
-  font-family: "GenKiMin2TC-B", "Constantia", serif;
-}
-
-.vision-section {
-  display: flex;
-  color: var(--bs-white);
-  align-items: center;
-  border-bottom: 2px solid #9da9b5; /* 下方細線 */
-  font-family: "GenKiMin2TC-R", "Constantia", serif;
-}
-
+body{letter-spacing: 2pt;line-height: 1.75rem;font-family: "GenKiMin2TC-M", "Constantia", serif;}
+.bannerTitle{font-family: 'GenKiMin2TC-SB';font-size: 1.75rem;color: #ffffff;line-height: 2.75rem;}
+.about-background { background-image: url('/static/web/assets/about/about-jun-sheng1.png'); }
+.about-body{margin-top: 100px;}
+.sustainability-title { font-family: 'GenKiMin2TC-SB'; color:#ffffff; font-size: 1.5rem;}
+.services{font-family: 'GenKiMin2TC-SB';}
+.services-banner {background-image: url('/static/web/assets/about/services-bg.jpg'); }
+.services-dashed {height: 2px; width: 100%;background-image: repeating-linear-gradient(to right,#bd985f 0,#bd985f 10px, /* 虛線長度 */ transparent 10px,transparent 20px );margin-top: 4rem;}
+.visionBanner{background-color: #dfdee1; color: #0f2642; font-size: 24px;padding: 10px;font-family: "GenKiMin2TC-B", "Constantia", serif;}
+.vision-section {display: flex;color: var(--bs-white);align-items: center;border-bottom: 2px solid #9da9b5; /* 下方細線 */font-family: "GenKiMin2TC-R", "Constantia", serif;}
 /* vision 區塊文字區 */
-.vision-left {
-  display: flex;
-  /* 水平置中 */
-  justify-content: center;    
-  /* 垂直置中 */
-  align-content: center;      
-  flex-wrap: wrap;
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 20px;
-  width:15%;
-  letter-spacing: 3pt;
-}
-
-.vision-area-color1{
-  background-color: var(--bs-yellow-color);
-  color: var(--bs-white);
-}
-
-.vision-area-color2{
-  background-color: var(--bs-brown-color);
-  color: var(--bs-white);
-}
-
-.vision-right{
-  width: 85%;
-  letter-spacing: 3pt;
-}
-
-
+.vision-left {display: flex;justify-content: center;align-content: center;flex-wrap: wrap;font-weight: bold;font-size: 1.5rem;padding: 20px;width:15%;letter-spacing: 3pt;}
+.vision-area-color1{background-color: var(--bs-yellow-color);color: var(--bs-white);}
+.vision-area-color2{background-color: var(--bs-brown-color);color: var(--bs-white);}
+.vision-right{width: 85%;letter-spacing: 3pt;}
 /* 右邊文字區 BRAND NEW SENSES*/
-.vision-right h5 {
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.vision-right p {
-  margin: 0;
-  font-size:1.25rem;
-  
-  line-height: 1.75rem;
-}
-
-.vision-right .desc {
-  font-size:1rem;
-}
-
-.bossTalk {
-  font-size: 30px;
-  line-height: 1.8;
-}
-
-.bossTalk .title {
-  font-family: 'GenKiMin2TC-B';
-  position: relative;
-  display: inline-block; /* 讓偽元素跟文字對齊 */
-  line-height: 1.2; /* 保留一點下方空間，讓偽元素可見 */
-}
-
-/* 下方短邊框 */
-.bossTalk .title::after {
-  content: "";
-  display: block;
-  margin-top: 30px;
-  width: 30px;
-  border-top: 2px solid #c39c61;
-}
-
-.bossTalkContent{
-  font-size: 1.25rem;  
-}
-
-.bossTalkContent .title{
-  font-family: "GenKiMin2TC-B";
-}
-
-.about-s6s-title{
-  line-height: 2.25rem;
-  color: #ffffff;
-  font-family: "GenKiMin2TC-B", "Constantia", serif;
-}
-
-.about-junsfeng-img {
-  background-image: url('/static/web/assets/about/about-jun-bg.jpg');
-  background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center center;
-}
-
-.bannerImg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.vision-right h5 {font-weight: 700;letter-spacing: 1px;}
+.vision-right p {margin: 0;font-size:1.25rem;line-height: 1.75rem;}
+.vision-right .desc {font-size:1rem;}
+.bossTalk {font-size: 30px;line-height: 1.8;}
+.bossTalk .title {font-family: 'GenKiMin2TC-B';position: relative;display: inline-block; /* 讓偽元素跟文字對齊 */line-height: 1.2; /* 保留一點下方空間，讓偽元素可見 */}
+.bossTalk .title::after {content: "";display: block;margin-top: 30px;width: 30px;border-top: 2px solid #c39c61;}
+.bossTalkContent{font-size: 1.25rem;}
+.bossTalkContent .title{font-family: "GenKiMin2TC-B";}
+.about-s6s-title{line-height: 2.25rem;color: #ffffff;font-family: "GenKiMin2TC-B", "Constantia", serif;}
+.about-junsfeng-img {background-image: url('/static/web/assets/about/about-jun-bg.jpg');background-size: cover;			background-repeat: no-repeat;background-position: center center;}
+.bannerImg {width: 100%;height: auto;display: block;}
