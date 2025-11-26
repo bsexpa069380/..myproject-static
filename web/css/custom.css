@@ -256,6 +256,8 @@ a:focus .card {
   color: #475941;
 }
 
+
+
 /* 電腦版：水平排列 submenu，hover 顯示 */
 @media (min-width: 768px) {
   .menu-item {
