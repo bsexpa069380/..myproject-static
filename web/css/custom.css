@@ -165,7 +165,7 @@
     }
 
     .primary-menu .menu-item a:hover {
-        color: #2d4b3c !important;
+        color: #be9c59 !important;
     }
 }
 
@@ -184,7 +184,7 @@
 }
 
 .primary-menu .menu-item a:hover {
-    color: #2d4b3c !important;
+    color: #be9c59 !important;
 }
 
 /* Project card hover effect for cards inside links */
@@ -201,5 +201,95 @@ a:focus .card {
 
 .shadow-sm {
   box-shadow: none !important;
+}
+
+/*nav add submenu*/
+
+/*nav*/
+.nav-grid{display:block;margin-left: 10%;}
+@media screen and (max-height: 700px), (max-width: 700px) {
+  .nav-grid{padding: 65px 0;}
+}
+@media screen and (max-width: 700px) {
+  .nav-grid { margin-left: 0;}
+}
+
+/*submenu*/
+/* submenu 初始隱藏 */
+.submenu {
+  display: none;           /* 初始隱藏 */
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;         /* 水平時換行用 */
+}
+
+/* submenu 內所有 a */
+.submenu a {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5rem 0rem; /* 預設上下 0.5rem，左右 1rem */
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* 底線動畫 */
+.submenu a:before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: #475941;
+  transition: all 0.3s ease;
+}
+
+.submenu a:hover:before,
+.submenu a.active:before {
+  width: 100%;
+  left: 0;
+}
+
+.submenu a:hover,
+.submenu a.active {
+  color: #475941;
+}
+
+/* 電腦版：水平排列 submenu，hover 顯示 */
+@media (min-width: 768px) {
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-item:hover > .submenu {
+    display: flex;
+    flex-direction: row; /* 水平排列 */
+  }
+}
+
+/* 手機版：垂直排列 submenu，點擊展開 */
+@media (max-width: 767px) {
+  .menu-container {
+    flex-direction: column;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+
+  .submenu {
+    display: none;       /* 預設隱藏 */
+    flex-direction: column; /* 垂直排列 */
+    width: 100%;
+  }
+
+  .menu-item.active > .submenu {
+    display: flex;       /* 點擊後顯示 */
+  }
+
+  .submenu a {
+    width: 100%;
+  }
 }
 

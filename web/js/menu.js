@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
             primaryMenu.classList.add('menu-open');
             document.body.style.overflow = 'hidden';
             
-            // 為每個選單項目添加延遲動畫
             menuItems.forEach((item, index) => {
                 item.style.transitionDelay = `${index * 0.1}s`;
             });
@@ -21,9 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
             primaryMenu.classList.remove('menu-open');
             document.body.style.overflow = '';
             
-            // 重置選單項目的延遲
             menuItems.forEach(item => {
                 item.style.transitionDelay = '0s';
+                // 關閉 submenu
+                item.classList.remove('active');
             });
         }
     }
@@ -42,11 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 點擊選單項目時關閉選單
+    // 點擊選單項目時關閉選單（手機版 submenu 展開控制）
     menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            if (isMenuOpen) {
-                toggleMenu();
+        const link = item.querySelector('.menu-link');
+
+        // 點擊 menu-link 展開 submenu（僅手機版）
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 767) {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) {
+                    e.preventDefault(); // 阻止跳轉
+                    item.classList.toggle('active'); // 切換 submenu 顯示
+                }
             }
         });
     });
@@ -64,4 +71,4 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleMenu();
         }
     });
-}); 
+});
