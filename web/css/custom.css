@@ -270,28 +270,30 @@ a:focus .card {
   }
 }
 
-/* 手機版：垂直排列 submenu，點擊展開 */
-@media (max-width: 767px) {
-  .menu-container {
-    flex-direction: column;
-  }
-
-  .menu-item {
-    width: 100%;
-  }
-
-  .submenu {
-    display: none;       /* 預設隱藏 */
-    flex-direction: column; /* 垂直排列 */
-    width: 100%;
-  }
-
-  .menu-item.active > .submenu {
-    display: flex;       /* 點擊後顯示 */
-  }
-
-  .submenu a {
-    width: 100%;
-  }
+/* .footer-nav em*/
+.primary-menu li em{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.8em;
+    letter-spacing: 0.4em;
+    -ms-transform: scale3d(.8,.8,.8);
+    -webkit-transform: scale3d(.8, .8, .8);
+    -moz-transform: scale3d(.8,.8,.8);
+    -o-transform: scale3d(.8,.8,.8);
+    transform: scale3d(.8, .8, .8);
+    transform-origin: left center;
+    font-style: normal;
 }
 
+/* 手機版：垂直排列 submenu，點擊展開 */
+@media (max-width: 767px) {
+  .menu-container {    flex-direction: column;  }
+  .menu-item {    width: 100%;  }
+  .submenu {    display: none;       /* 預設隱藏 */    flex-direction: column; /* 垂直排列 */    width: 100%;}
+  .menu-item.active > .submenu {    display: flex;       /* 點擊後顯示 */  }
+  .submenu a {    width: 100%;  }
+}
+/*img animation*/
+.zoom-wrap {    overflow: hidden;   /* 超出裁掉，讓圖片放大不會溢出 */}
+.zoom-wrap img {    transition: transform 0.5s ease;  /* 動畫速度 / 緩動 */}
+.zoom-wrap:hover img {    transform: scale(1.1);  /* 滑過後放大 */}
