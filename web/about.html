@@ -340,8 +340,8 @@
             大都更時代極綻力
           </div>
         </div>
-        <div class="row" data-animate="fadeInTopLeft">
-            <div class="col-md-4 mb-3 p-3">
+        <div class="row">
+            <div class="col-md-4 mb-3 p-3"  data-animate="fadeInTopLeft">
               <div class="fs-4">匯時代建築菁英<br/>
               超過 <span class="text-cyellow">30</span> 年房產專業</div>
               <div class="text-cyellow mt-3 fs-4">
@@ -363,7 +363,7 @@
                 後，建立一條龍安心程序。
               </div>
             </div>
-            <div class="col-md-4 p-3">
+            <div class="col-md-4 p-3"  data-animate="fadeInTopRight">
               <div class="fs-5 text-cyellow fs-4">您的想法<br/>
               我們最在意</div>
               <div class=" text-cyellow mt-3 fs-4">
@@ -383,8 +383,26 @@
                 更高品質生活。
               </div>
             </div>
+            <style>
+              /* 圖片還沒載入前（lazy 狀態） */
+              img.lazy {
+                background-image: url(/static/web/assets/loader.gif); /* 你的 loading 圖 */
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 50px; /* loading 大小可調整 */
+                opacity: 0;
+                transition: opacity .4s ease;
+              }
+
+              /* 圖片載入後（lazy-loaded 狀態） */
+              img.lazy.lazy-loaded,
+              picture.lazy img.lazy-loaded {
+                opacity: 1;
+                background: none; /* 移除 loading 圖 */
+              }
+            </style>
             <div class="col-md-4 p-4">
-              <img src="/static/web/assets/about/sense-subbg.jpg" class="img-fluid" loading="lazy">
+              <img src="/static/web/assets/about/sense-subbg.jpg" class="img-fluid lazy">
             </div>
         </div>
       </div>

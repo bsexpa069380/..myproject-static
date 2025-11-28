@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuClose = document.querySelector('.menu-close');
     const primaryMenu = document.querySelector('.primary-menu');
     const menuItems = document.querySelectorAll('.primary-menu .menu-item');
+    const lazyImgs = document.querySelectorAll("img.lazy");
+
     let isMenuOpen = false;
 
     // 選單開關功能
@@ -71,4 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleMenu();
         }
     });
+
+    // 圖片 lazy load 功能
+    lazyImgs.forEach(img => {
+        if (img.complete) {
+        img.classList.add("lazy-loaded");
+        } else {
+        img.addEventListener("load", () => {
+            img.classList.add("lazy-loaded");
+        });
+        }
+    });
+
 });
