@@ -73,16 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleMenu();
         }
     });
-
-    // 圖片 lazy load 功能
-    lazyImgs.forEach(img => {
-        if (img.complete) {
-        img.classList.add("lazy-loaded");
-        } else {
-        img.addEventListener("load", () => {
-            img.classList.add("lazy-loaded");
-        });
-        }
-    });
-
 });
