@@ -13,11 +13,11 @@
 /* 全螢幕覆蓋選單樣式 */
 @media (max-width: 991px) {
     .primary-menu {
+        height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
         background: rgba(0, 0, 0, 0.65);
         background-image: url('../assets/hero-page/hero-slider-dark-bg-m.jpg');
         background-size: cover;
@@ -25,7 +25,8 @@
         background-repeat: no-repeat;
         z-index: 999;
         display: none;
-        padding: 80px 0 0;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* 關閉按鈕樣式 */
@@ -78,11 +79,9 @@
     .primary-menu .menu-container {
         display: flex;
         flex-direction: column;
+        justify-content: flex-start !important; /* 由置中改為靠上 */
         align-items: center;
-        justify-content: center;
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        padding-bottom: 160px !important; /* 強制更大空間 */
     }
 
     .primary-menu .menu-item {
