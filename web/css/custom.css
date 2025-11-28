@@ -19,7 +19,7 @@
         width: 100%;
         height: 100vh;
         background: rgba(0, 0, 0, 0.65);
-        background-image: url('../assets/hero-page/hero-slider-dark-bg.jpg');
+        background-image: url('../assets/hero-page/hero-slider-dark-bg-m.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -109,19 +109,6 @@
 
     .primary-menu .menu-link div.bw {
         color: #fff !important;
-    }
-
-    /* 選單項目下方線條樣式 */
-    .menu-container .menu-item a::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -5px;
-        width: 0;
-        height: 1px;
-        background-color: #c39c61;
-        transition: width 0.3s ease;
     }
 
     .menu-container .menu-item a:hover::after {
