@@ -283,29 +283,37 @@ a:focus .card {
 .zoom-wrap {    overflow: hidden;   /* 超出裁掉，讓圖片放大不會溢出 */}
 .zoom-wrap img {    transition: transform 0.5s ease;  /* 動畫速度 / 緩動 */}
 .zoom-wrap:hover img {    transform: scale(1.1);  /* 滑過後放大 */}
-
 /*img loading*/
-  /* loader image */
-  .loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    margin: -25px 0 0 -25px;
-    background: url("/static/web/assets/loader.gif") center center no-repeat;
-    background-size: contain;
-    z-index: 10;
-  }
-
-  img.lazy {
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  img.lazy.loaded {
-    opacity: 1;
-  }
+.loader { position: absolute; top: 50%; left: 50%; width: 50px; height: 50px;    margin: -25px 0 0 -25px;background: url("/static/web/assets/loader.gif") center center no-repeat;    background-size: contain;z-index: 10;}
+img.lazy {display: block; width: 100%;height: 100%;opacity: 0; transition: opacity 0.5s ease;}
+img.lazy.loaded {opacity: 1;  }
+/*index page css*/
+.index-about-title{	font-family: "GenKiMin2TC-B";	font-size: 30px;color: #626363;}
+.index-about-content{	font-size: 24px;	color: #626363;	}
+/* 整個 Banner 背景圖 */
+.index-banner {	width: 100%;	background: url('/static/web/assets/index-bg.jpg') no-repeat center center;background-size: cover;}
+.renew-banner {	background-size: cover;		padding: 80px 0;		display: flex;		justify-content: right;}
+/* 左右排版（已調整更接近原圖） */
+.renew-banner-inner {	width: 90%;max-width: 1300px;margin-left: 4%;display: flex;justify-content: space-between;align-items: center;}
+/* 文字群（縮窄間距） */
+.renew-text-block {	display: flex;flex-direction: row;gap: 20px;}
+/* 大直式字（位置貼近原圖） */
+.text-large-vertical {writing-mode: vertical-rl;text-orientation: mixed;font-size: 38px;font-weight: 600;line-height: 1.8;	margin-left: auto; 	}
+/* 小直式字（行距調小） */
+.text-desc-vertical {	writing-mode: vertical-rl;text-orientation: mixed;font-size: 18px;line-height: 1.6;margin-left: auto; }
+.top-selling-content {background: url('/static/web/assets/index/index-banner.jpg');	background-size: cover;background-repeat: no-repeat;	background-position: center center;}
+.banner-title-section {	background: url('/static/web/assets/index/index-banner.jpg') no-repeat center center;background-size: cover;		position: relative;		text-align: center;	}
+/* 標題 */
+.banner-title-section-inner .title {font-size: 32px;margin: 0;letter-spacing: 4px;}
+/* 英文字 */
+.banner-title-section-inner .subtitle {	margin-top: 12px;	letter-spacing: 3px;	}
+/* 底線（在線的最底部） */
+.banner-title-section::after {content: "";		position: absolute;		left: 0;		bottom: 0; /* 線貼住 section 底部 */		width: 100%;height: 1px;		background-color: #d8b36a;	}
+/* 三角形（在線的上方） */
+.banner-title-section::before {content: "";	position: absolute;		left: 50%;		bottom: 1px;transform: translateX(-50%);		width: 0;		height: 0;		border-left: 10px solid transparent;border-right: 10px solid transparent;		border-bottom: 12px solid #d8b36a; }
+.index-award {background: url('/static/web/assets/index/index-award-bg.jpg') no-repeat center center;background-size: cover;	}
+#bs-carousel-line .carousel-indicators {bottom: -50px; 	}
+.about-btn {background-color: #bd985f;   /* 原始背景色 */color: #ffffff;/* 文字白色 */border: 2px solid #bd985f;   /* 同色邊框 */padding: 10px 28px;	float: right;/* 按鈕靠右 */border-radius: 30px;          /* 可依需求調整 */	transition: all .3s ease;    /* 滑過動畫 */}
+.about-btn:hover {background-color: #ffffff;   /* 滑過變白 */color: #bd985f;/* 文字變原色 */border-color: #bd985f;/* 邊框維持同色 */}
+/* 手機版樣式 */
+@media screen and (max-width: 767px) { .text-large-vertical { margin: auto; }  .text-desc-vertical {margin: auto; }}	
