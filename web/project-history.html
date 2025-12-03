@@ -429,7 +429,7 @@
 				const res = await fetch('/api/online-sales');
 				if (!res.ok) throw new Error('Failed to fetch projects');
 				const data = await res.json();
-				const filtered = data.filter(item => item.category === category);
+				const filtered = data.filter(item => item.category === category&& item.schedule == 100);
 				if (filtered.length === 0) {
 					container.innerHTML = '<div class="col-12 text-center">此分類下尚無建案資料</div>';
 					return;
