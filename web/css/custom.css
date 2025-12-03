@@ -318,7 +318,7 @@ img.lazy.loaded {opacity: 1;  }
 /* 手機版樣式 */
 @media screen and (max-width: 767px) { .text-large-vertical { margin: auto; }  .text-desc-vertical {margin: auto; }}	
 /* default for desktop */
-#bs-carousel-line-news .carousel-inner {
+#bs-carousel-line-news .carousel-inner, #bs-carousel-line-sell .carousel-inner {
     height: 420px;
 }
 #bs-carousel-line-news .carousel-item img {
