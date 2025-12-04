@@ -7,17 +7,6 @@
   font-style: normal;
 }
 
-
-@font-face {
-  font-family: "GenKiMin2TC-EL";
-  src: url("/static/web/font/GenKiMin2TC-EL.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-L";
-  src: url("/static/web/font/GenKiMin2TC-L.otf") format("opentype");
-}
-
 @font-face {
   font-family: "GenKiMin2TC-R";
   src: url("/static/web/font/GenKiMin2TC-R.otf") format("opentype");
@@ -36,11 +25,6 @@
 @font-face {
   font-family: "GenKiMin2TC-B";
   src: url("/static/web/font/GenKiMin2TC-B.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-H";
-  src: url("/static/web/font/GenKiMin2TC-H.otf") format("opentype");
 }
 
 @font-face {
