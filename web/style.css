@@ -1,36 +1,4 @@
 @charset "UTF-8";
-/* 中文字體 */
-@font-face {
-  font-family: 'Noto Serif TC Medium';
-  src: url('/static/web/font/NotoSerifTC-Medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-R";
-  src: url("/static/web/font/GenKiMin2TC-R.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-M";
-  src: url("/static/web/font/GenKiMin2TC-M.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-SB";
-  src: url("/static/web/font/GenKiMin2TC-SB.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "GenKiMin2TC-B";
-  src: url("/static/web/font/GenKiMin2TC-B.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Constantia";
-  src: url("/static/web/font/Constantia.ttf") format("truetype");
-}
 
 /* 英文字體 Calibri Light（可選） */
 @font-face {
@@ -107,7 +75,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: 'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;
+  --bs-font-sans-serif: "Noto Serif TC", Times,"Times New Roman", "儷宋 Pro", "LiSong Pro Light", "宋体", SimSun, serif;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
