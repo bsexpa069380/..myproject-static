@@ -75,7 +75,7 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "Noto Serif TC", Times,"Times New Roman", "儷宋 Pro", "LiSong Pro Light", "宋体", SimSun, serif;
+  --bs-font-sans-serif: 'Noto Serif Hong Kong', serif;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
@@ -13309,9 +13309,9 @@ textarea.form-control-lg {
   --cnvs-black:	#000;
   --cnvs-headings-font-weight:	600;
   /* Font Families */
-  --cnvs-body-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
-  --cnvs-primary-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
-  --cnvs-secondary-font:	'Noto Serif TC Medium', 'Calibri Light', Calibri, 'Times New Roman', serif;;
+  --cnvs-body-font:	'Noto Serif Hong Kong', 'Times New Roman', serif;
+  --cnvs-primary-font:	'Noto Serif Hong Kong', 'Times New Roman', serif;
+  --cnvs-secondary-font:	'Noto Serif Hong Kong', 'Times New Roman', serif;
   --cnvs-line-height-base:	1.5;
   --cnvs-line-height-content:	1.65;
   /* Margins */
@@ -22307,7 +22307,7 @@ div.alignright {
 .wp-caption {
   text-align: center;
   margin: 10px 20px 13px 20px;
-  font-family: var(--cnvs-body-font), "PMingLiU", "MingLiU", "宋体", serif;
+  font-family: var(--cnvs-body-font), 'Noto Serif Hong Kong', 'Times New Roman', serif;
   font-style: italic;
 }
 
@@ -24063,7 +24063,7 @@ td.actions {
 .fbox-content h3, .fbox-content .h3 {
   font-size: var(--cnvs-featured-box-font-size);
   font-weight: 100;
-  font-family: 'Noto Sans TC', sans-serif;/*	var(--cnvs-primary-font);*/
+  font-family: 'Noto Serif Hong Kong', 'Times New Roman', serif; /*	var(--cnvs-primary-font);*/
   text-transform: var(--cnvs-featured-box-font-tt);
   margin-bottom: 0;
   color: #2d4b3c;
@@ -24072,7 +24072,7 @@ td.actions {
   margin-top: 0.5rem;
   margin-bottom: 0px;
   color: #2d4b3c; /*	var(--cnvs-contrast-600);*/
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Serif Hong Kong', 'Times New Roman', serif;
 }
 .fbox-content .before-heading {
   font-size: calc(var(--cnvs-featured-box-font-size) / 1.142);
@@ -29227,7 +29227,7 @@ blockquote.float-end {
 }
 .nav-tree ul ul a {
   padding: 6px 0;
-  font-family: "Inter", sans-serif;
+  font-family: 'Noto Serif Hong Kong', 'Times New Roman', serif;
   padding-left: 20px;
 }
 .nav-tree ul ul ul a {
@@ -29312,13 +29312,13 @@ blockquote.float-end {
   font-size: 56px;
   font-weight: 400;
   font-style: italic;
-  font-family: "Playfair Display", serif;
+  font-family: 'Noto Serif Hong Kong', 'Times New Roman', serif;
   text-transform: none;
 }
 .wedding-head .and {
   margin: 0;
   font-size: 200px;
-  font-family: "Times New Roman", serif;
+  font-family: 'Noto Serif Hong Kong', 'Times New Roman', serif;
 }
 
 /* --------------------------------------------------------------
@@ -33777,7 +33777,7 @@ body.dark {
   margin: 0;
   font-size: 1.5em;
   color: #C49A6C;
-  font-family: "Noto Serif TC", "Songti TC", serif; /* 可選仿宋/宋體字體 */
+  font-family: 'Noto Serif Hong Kong', serif; 
 }
 
 .s-5{
@@ -33801,7 +33801,7 @@ body.dark {
   width: 100%;
   max-width: 700px;
   border-collapse: collapse;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Serif Hong Kong', serif;
   font-size: 14px;
   color: #c39c61;
   margin: 1em auto;
@@ -33853,7 +33853,7 @@ body.dark {
   width: 100%;
   max-width: 800px;
   margin: 2em auto;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Serif Hong Kong', serif;
 }
 
 .btn-custom {
@@ -33903,7 +33903,7 @@ img.object-fit-cover {
 }
 
 .footer-widgets-wrap p {
-	  font-family: 'Noto Sans TC', sans-serif;
+	  font-family: 'Noto Serif Hong Kong', serif;
 	  font-size: 15px;
 	
 }

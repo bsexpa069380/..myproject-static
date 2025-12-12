@@ -1,5 +1,5 @@
 /*about page*/
-body{letter-spacing: 2pt;line-height: 1.75rem;}
+body{letter-spacing: 2pt;line-height: 1.75rem;font-family: 'Noto Serif Hong Kong';}
 .bannerTitle{font-size: 1.75rem;color: #ffffff;line-height: 2.75rem;}
 .about-background { background-image: url('/static/web/assets/about/about-jun-sheng1.png'); }
 .about-body{margin-top: 100px;}

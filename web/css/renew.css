@@ -1,6 +1,7 @@
 body{
   letter-spacing: 2pt;
   line-height: 1.75rem;
+  font-family: 'Noto Serif Hong Kong';
 }
 .ad-title {
 	display: flex;
@@ -291,4 +292,14 @@ ul li {
 
 #dan-oldhouse, #cityrenew{
   background-color: #f6f8f7e6;
+}
+
+/*ol style 縮排*/
+ol {
+  list-style-position: inside;
+}
+
+ol li {
+  text-indent: -1.5em;
+  padding-left: 1.5em;
 }
