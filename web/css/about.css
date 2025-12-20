@@ -1,5 +1,5 @@
 /*about page*/
-body{letter-spacing: 2pt;line-height: 1.75rem;font-family: 'Noto Serif Hong Kong';}
+body{letter-spacing: 2pt;line-height: 1.75rem;font-family: 'Noto Serif HK', serif;}
 .bannerTitle{font-size: 1.75rem;color: #ffffff;line-height: 2.75rem;}
 .about-background { background-image: url('/static/web/assets/about/about-jun-sheng1.png'); }
 .about-body{margin-top: 100px;}
@@ -21,6 +21,6 @@ body{letter-spacing: 2pt;line-height: 1.75rem;font-family: 'Noto Serif Hong Kong
 .bossTalk .title {position: relative;display: inline-block; /* 讓偽元素跟文字對齊 */line-height: 1.2; /* 保留一點下方空間，讓偽元素可見 */}
 .bossTalk .title::after {content: "";display: block;margin-top: 30px;width: 30px;border-top: 2px solid #c39c61;}
 .bossTalkContent{font-size: 1.25rem;}
-.about-s6s-title{line-height: 2.25rem;color: #ffffff;font-family: "GenKiMin2TC-B", "Constantia", serif;}
+.about-s6s-title{line-height: 2.25rem;color: #ffffff;}
 .about-junsfeng-img {background-image: url('/static/web/assets/about/about-jun-bg.jpg');background-size: cover;			background-repeat: no-repeat;background-position: center center;}
 .bannerImg {width: 100%;height: auto;display: block;}

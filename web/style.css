@@ -1,13 +1,5 @@
 @charset "UTF-8";
 
-/* 英文字體 Calibri Light（可選） */
-@font-face {
-  font-family: 'Calibri Light';
-  src: local('Calibri Light'), local('Calibri-Light');
-  font-weight: 300;
-  font-style: normal;
-}
-
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
