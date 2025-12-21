@@ -143,65 +143,14 @@ ul li {
 
 }
 
-#advantages-table{
-  width: 100%;
-  font-family: 'Noto Serif TC Medium', serif; 
-}
-
-#advantages-table th{
-  color: white; 
-  background-color: #0f2642; 
-  font-size: 1.5rem;
-}
-
-#advantages-table tr{
-  background-color: #d3d6da;
-  color: #0f2642;
-  border-bottom: 1px solid #0f2642;
-}
-
-#advantages-table tr td, table tr th {
-  padding: 2% 8%;
-  font-size: 1.125rem;
-}
-
-#advantages1-table{
-  width: 100%;
-  font-family: 'Noto Serif TC Medium', serif; 
-}
-
-#advantages1-table th{
-  color: white; 
-  background-color: #9e4e24; 
-  font-size: 1.5rem;
-}
-
-#advantages1-table tr{
-  background-color: #ffe7da;
-  color: #0f2642;
-  font-size: 1.1 em;
-}
-
-#advantages1-table table tr th {
-  padding: 2% 4%;
-}
-
-#advantages1-table tr td {
-  padding: 2% 4%;
-  border: 1px solid #49484a;
-  font-size: 18px;
-}
-
 #renewal-oldage .primary-area {
   background-color: #be9c59; /* 背景顏色 */
   padding: 25px; /* 內邊距，讓內容與邊框保持距離 */
   color: #fff; /* 文字顏色設為白色，確保可讀性 */
   box-sizing: border-box; /* 確保 padding 不影響寬度 */
   line-height: 2; /* 為每個區塊內的文字單獨設置行高 */
-  min-height: 50vh;
   font-size: 18px;
 }
-
 
 #renewal-oldage  .blue-area {
   background-color: #0f2642; /* 背景顏色 */
@@ -209,15 +158,22 @@ ul li {
   color: #fff; /* 文字顏色設為白色，確保可讀性 */
   box-sizing: border-box; /* 確保 padding 不影響寬度 */
   line-height: 2; /* 為每個區塊內的文字單獨設置行高 */
-  min-height: 50vh;
   font-size: 18px;
+}
+/* 桌機版 min-height */
+@media (min-width: 992px) {  /* lg 以上 */
+  #renewal-oldage .primary-area {
+    min-height: 50vh;
+  }
+  #renewal-oldage .blue-area {
+    min-height: 50vh;
+  }
 }
 
 #renewal-oldage .renewal-oldage-subtitle {
   font-size: 1.75rem;
   color: #0f2642;
 }
-
 
 #renewal-oldage .title {
   color: #ffffff;
@@ -228,19 +184,6 @@ ul li {
   text-align: center;  
   width: 100%;
   margin-bottom: 20px;
-}
-
-
-#advantages1 .subtitle {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color:#9e4e24;
-}
-
-#advantages1 .thirdtitle {
-    font-size: 1.75rem;
-    color:#9e4e24;
-    margin: 10px 0px 20px 0px;
 }
 
 .renew-title-box {
@@ -302,4 +245,139 @@ ol {
 ol li {
   text-indent: -1.5em;
   padding-left: 1.5em;
+}
+
+
+/* 手機版 */
+#advantages-table {
+  width: 100%;
+  font-family: 'Noto Serif TC Medium', serif; 
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+#advantages-table tr {
+  background-color: #d3d6da;
+  color: #0f2642;
+}
+
+#advantages-table th {
+  display: none;
+}
+
+#advantages-table td {
+  display: block;
+  padding: 0.75rem 2.125rem;
+}
+
+#advantages-table td:last-child {
+  border-bottom: 1px solid #0f2642;
+}
+
+#advantages-table td::before {
+  content: attr(data-th) "：";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+
+/* 桌機版 */
+@media (min-width: 480px) {
+
+  #advantages-table td,
+  #advantages-table th {
+    display: table-cell;
+    padding: 2% 8%;
+    border-bottom: 1px solid #0f2642; /* 🔥 移到這裡 */
+  }
+
+  #advantages-table th {
+    background-color: #0f2642;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  #advantages-table td {
+    font-size: 1.125rem;
+  }
+
+  #advantages-table td::before {
+    display: none;
+  }
+}
+
+
+/* ===== advantages1-table 基本設定 ===== */
+#advantages1 .subtitle {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #9e4e24;
+}
+
+#advantages1 .thirdtitle {
+    font-size: 1.75rem;
+    color: #9e4e24;
+    margin: 10px 0px 20px 0px;
+}
+
+#advantages1-table {
+  width: 100%;
+  font-family: 'Noto Serif TC Medium', serif; 
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* ===== 手機版（預設） ===== */
+#advantages1-table th {
+  display: none;  /* 隱藏表頭 */
+}
+
+#advantages1-table td {
+  display: block;              /* 手機版每個 td 變成 block */
+  padding: 0.75rem 1.5rem;     /* 手機版 padding */
+  border-bottom: 1px solid #49484a; /* 每列底線 */
+  background-color: #ffe7da;   /* 手機版背景色 */
+  color: #0f2642;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+
+/* 手機版 td 前置表頭換行 */
+#advantages1-table td::before {
+  content: attr(data-th);
+  font-weight: bold;
+  display: block;       /* 改成 block，自動換行 */
+  margin-bottom: 0.5rem; /* 與內容分隔 */
+}
+
+/* ===== 桌機版 ===== */
+@media (min-width: 480px) {
+
+  #advantages1-table th,
+  #advantages1-table td {
+    display: table-cell;        /* 還原表格呈現 */
+    padding: 2% 4%;             /* 桌機版 padding */
+    border: 1px solid #49484a;  /* 桌機版表格邊框 */
+    font-size: 18px;
+    background-color: #ffe7da;  /* 背景色 */
+    color: #0f2642;
+  }
+
+  #advantages1-table th {
+    display: table-cell;
+    background-color: #9e4e24; 
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+  }
+
+  #advantages1-table td::before {
+    display: none;              /* 桌機版不顯示前置表頭 */
+  }
+}
+
+/* ===== optional: 手機版奇偶行背景不同 (斑馬紋) ===== */
+#advantages1-table tr:nth-of-type(2n) td {
+  background-color: #f8e3d0;  /* 手機版斑馬背景色 */
 }
