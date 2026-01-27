@@ -315,6 +315,10 @@ img.lazy.loaded {opacity: 1;  }
 #bs-carousel-line .carousel-indicators {bottom: -50px; }
 .about-btn {background-color: #bd985f;   /* 原始背景色 */color: #ffffff;/* 文字白色 */border: 2px solid #bd985f;   /* 同色邊框 */padding: 10px 28px;	float: right;/* 按鈕靠右 */border-radius: 30px;          /* 可依需求調整 */	transition: all .3s ease;    /* 滑過動畫 */}
 .about-btn:hover {background-color: #ffffff;   /* 滑過變白 */color: #bd985f;/* 文字變原色 */border-color: #bd985f;/* 邊框維持同色 */}
+.hero-content {font-size: 36px; color:#bd985f;}
+.left-logo{height: 50px;}
+/* 整段文字 */
+.hero-text { margin-top: 5%; font-size: 18px; line-height: 1.5; color:#626363;}
 /* 手機版樣式 */
 @media screen and (max-width: 767px) { .text-large-vertical { margin: auto; }  .text-desc-vertical {margin: auto; }}	
 /* default for desktop */
