@@ -1,7 +1,7 @@
 body{
   letter-spacing: 2pt;
   line-height: 1.75rem;
-  font-family: 'Noto Serif HK', serif;
+  font-family: 'Noto Serif HK', 'Times New Roman', serif;
 }
 .ad-title {
 	display: flex;
@@ -71,12 +71,12 @@ body{
 	margin-left: 55px;
 }
 ul li {
-	font-family: 'Noto Serif TC Medium', serif; 
+	font-family:  'Noto Serif HK', 'Times New Roman', serif;
 	font-size: 1.125rem;
 	color: #2d4b3c;
 }
 .adv1 li {
-	font-family: 'Noto Serif TC Medium', serif; 
+	font-family:  'Noto Serif HK', 'Times New Roman', serif;
 	font-size: 0.9375rem;
 	color: #2d4b3c;
 	font-weight: 100;
@@ -198,7 +198,7 @@ ul li {
     margin: 0;
     font-size: 1.875rem;
     color: #ffffff;
-    font-family: 'Noto Serif TC Medium', serif; 
+    font-family:  'Noto Serif HK', 'Times New Roman', serif;
     margin-bottom: 10px;
 }
 
@@ -251,7 +251,7 @@ ol li {
 /* 手機版 */
 #advantages-table {
   width: 100%;
-  font-family: 'Noto Serif TC Medium', serif; 
+  font-family:  'Noto Serif HK', 'Times New Roman', serif;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -322,7 +322,7 @@ ol li {
 
 #advantages1-table {
   width: 100%;
-  font-family: 'Noto Serif TC Medium', serif; 
+  font-family: 'Noto Serif HK', 'Times New Roman', serif; 
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -336,7 +336,7 @@ ol li {
   display: block;              /* 手機版每個 td 變成 block */
   padding: 0.75rem 1.5rem;     /* 手機版 padding */
   border-bottom: 1px solid #49484a; /* 每列底線 */
-  background-color: #ffe7da;   /* 手機版背景色 */
+  background-color: #fff1e9;   /* 手機版背景色 */
   color: #0f2642;
   font-size: 1.1rem;
   position: relative;
@@ -379,5 +379,5 @@ ol li {
 
 /* ===== optional: 手機版奇偶行背景不同 (斑馬紋) ===== */
 #advantages1-table tr:nth-of-type(2n) td {
-  background-color: #f8e3d0;  /* 手機版斑馬背景色 */
+  background-color: #f5d9c0;  /* 手機版斑馬背景色 */
 }
